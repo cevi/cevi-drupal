@@ -33,7 +33,7 @@ Lokaler Server so einrichten, dass die Webseite im Verzeichnis `./drupal/web` au
 Installationsprogramm kann unter DOMAIN//core/install.php aufgerufen werden. Diese Seite wird automatisch geladen.
    
     1) Sprache: Deutsch
-    1) Installationsprofil: Standard
+    1) Installationsprofil: Minimal
     1) Eigene Informationen eingeben (Name der Webseite, Emailadresse, Admin-User, ...)
 
 1) `$ vendor/bin/drush cim`
