@@ -17,11 +17,18 @@ Im Ordner `settings` muss eine Datei `settings.current.php` erstellt werden. Als
 `settings/settings.example.production.php`
 dienen.
 
+Lokaler Server so einrichten, dass die Webseite im Verzeichnis `./drupal/web` aufgerufen werden kann
+
 # <a name="installation">Installation</a>
 
-`$ cd drupal`
+1) `$ cd drupal`
 
-`$ composer install`
+2) `$ composer install`
+
+3) Drupal installieren: Seite besuchen und Installation starten.
+
+4) `$ vendor/bin/drush cim`
+Importiert die Konfiguration für die ganze Webseite.
 
 
 ## Frontend bearbeiten
