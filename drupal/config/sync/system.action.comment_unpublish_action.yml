@@ -1,0 +1,13 @@
+uuid: 08b5aa92-1f56-4037-a3ea-69b687fddff6
+langcode: de
+status: true
+dependencies:
+  module:
+    - comment
+_core:
+  default_config_hash: MLin6S_PsJ7Oo480DxS46D46IM8tqFkkWOLyH7TGByI
+id: comment_unpublish_action
+label: 'Kommentar zurücknehmen'
+type: comment
+plugin: 'entity:unpublish_action:comment'
+configuration: {  }

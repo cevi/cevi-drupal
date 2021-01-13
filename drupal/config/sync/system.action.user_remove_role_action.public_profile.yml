@@ -1,0 +1,14 @@
+uuid: 566be50f-7754-4800-a0ed-a1250f20b8c9
+langcode: de
+status: true
+dependencies:
+  config:
+    - user.role.public_profile
+  module:
+    - user
+id: user_remove_role_action.public_profile
+label: 'Remove the Öffentliche Person role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: public_profile

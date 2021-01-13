@@ -1,0 +1,22 @@
+uuid: 0b927d49-1b76-4b00-9a52-163cbacf4e00
+langcode: de
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - cevi
+_core:
+  default_config_hash: oXUb3JZR2WW5VOdw4HrhRicCsq51mCgLfRyvheG68ck
+id: cevi_breadcrumbs
+theme: cevi
+region: header
+weight: -4
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility: {  }

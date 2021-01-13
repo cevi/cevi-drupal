@@ -1,0 +1,27 @@
+uuid: aa598b85-d80a-4de1-9b5d-7298854bdd3d
+langcode: de
+status: false
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - system
+  theme:
+    - ceviadmin
+_core:
+  default_config_hash: kkISXE1LT2FJEoYnqCrCpeFB-2pmGmMxMklVk7rQcfg
+id: ceviadmin_footer
+theme: ceviadmin
+region: header
+weight: -3
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: Fußbereichsmenü
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

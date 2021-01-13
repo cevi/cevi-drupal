@@ -1,0 +1,8 @@
+uuid: f5106e3e-0e71-4c73-af35-8a445a3ee4ed
+langcode: de
+status: true
+dependencies: {  }
+id: short_date
+label: 'Datum kurz'
+locked: false
+pattern: d.m.Y

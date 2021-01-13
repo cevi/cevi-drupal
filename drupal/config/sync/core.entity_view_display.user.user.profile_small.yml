@@ -1,0 +1,68 @@
+uuid: 64fa9d49-cd50-4486-bf64-493f24d614bd
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.profile_small
+    - field.field.user.user.field_birthday
+    - field.field.user.user.field_email
+    - field.field.user.user.field_email_private
+    - field.field.user.user.field_firstname
+    - field.field.user.user.field_lastname
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_vulgo
+    - field.field.user.user.user_picture
+  module:
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.profile_small
+targetEntityType: user
+bundle: user
+mode: profile_small
+content:
+  field_email:
+    type: basic_string
+    weight: 3
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_firstname:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_lastname:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_phone:
+    type: string
+    weight: 4
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_vulgo:
+    type: string
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  field_birthday: true
+  field_email_private: true
+  langcode: true
+  member_for: true
+  user_picture: true

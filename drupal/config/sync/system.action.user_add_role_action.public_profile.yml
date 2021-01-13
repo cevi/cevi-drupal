@@ -1,0 +1,14 @@
+uuid: 654e03af-028b-4348-b0e6-ffc75c7397b8
+langcode: de
+status: true
+dependencies:
+  config:
+    - user.role.public_profile
+  module:
+    - user
+id: user_add_role_action.public_profile
+label: 'Add the Öffentliche Person role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: public_profile

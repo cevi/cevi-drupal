@@ -1,0 +1,17 @@
+uuid: e2350e65-0b6f-4be9-be16-3951b3c19c55
+langcode: de
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Landingpage
+type: landingpage
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

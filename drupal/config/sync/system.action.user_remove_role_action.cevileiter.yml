@@ -1,0 +1,14 @@
+uuid: e641fc23-38a5-484c-bef1-bb5b2e9ac387
+langcode: de
+status: true
+dependencies:
+  config:
+    - user.role.cevileiter
+  module:
+    - user
+id: user_remove_role_action.cevileiter
+label: 'Remove the Cevileiter role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: cevileiter

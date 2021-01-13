@@ -1,0 +1,21 @@
+uuid: 65ac03f7-83d6-4753-8b01-ca72d602b23e
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.highlight.field_text_clear
+    - paragraphs.paragraphs_type.highlight
+id: paragraph.highlight.default
+targetEntityType: paragraph
+bundle: highlight
+mode: default
+content:
+  field_text_clear:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

@@ -1,0 +1,17 @@
+uuid: 59f48125-2ddb-48de-b7a3-0bdbe4a3f31c
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: background_mobile
+label: 'Hintergrund Mobile'
+effects:
+  b85b1239-5569-493d-859e-ffb12b24304d:
+    uuid: b85b1239-5569-493d-859e-ffb12b24304d
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 780
+      height: 780
+      crop_type: focal_point

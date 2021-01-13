@@ -1,0 +1,97 @@
+uuid: cc0686e9-548e-418d-b668-7175e3eefae0
+langcode: de
+status: true
+dependencies:
+  module:
+    - views_ui
+_core:
+  default_config_hash: c-HMyZwgeP8H6AITDcq4hznePkd7azpe8xl_WTnx2O0
+id: views-ui
+label: 'Bearbeiten-Seite anzeigen'
+module: views_ui
+routes:
+  -
+    route_name: entity.view.edit_form
+  -
+    route_name: entity.view.edit_display_form
+tips:
+  views-main:
+    id: views-main
+    plugin: text
+    label: 'Ansicht-Einstellungen verwalten'
+    body: 'Konfiguration anzeigen oder bearbeiten.'
+    weight: 1
+  views-ui-displays:
+    id: views-ui-displays
+    plugin: text
+    label: 'Anzeigen in dieser Ansicht'
+    body: 'Eine Anzeige ist ein Weg Ergebnisse, wie eine Seite oder einen Block, auszugeben. Eine Ansicht kann mehrere Anzeigen enthalten; sie werden hier aufgeführt. Die aktive Anzeige wird hervorgehoben.'
+    weight: 2
+    attributes:
+      data-id: views-display-top
+  views-ui-view-admin:
+    id: views-ui-view-admin
+    plugin: text
+    label: 'Ansicht verwalten'
+    body: 'Durchführung administrativer Aufgaben, wie das Hinzufügen einer Beschreibung und das Duplizieren einer Ansicht. Das Drop-down öffnen um alle verfügbaren Optionen anzuzeigen.'
+    weight: 3
+    location: left
+    attributes:
+      data-id: views-display-extra-actions
+  views-ui-format:
+    id: views-ui-format
+    plugin: text
+    label: Ausgabeformat
+    body: 'Wie soll die Ausgabe der Ergebnisse erfolgen. Durch die Auswahl von <em>Inhalten</em> kann jedes Element mit den gewählten Darstellungseinstellungen komplett ausgegeben werden. Oder durch die Auswahl von <em>Feldern</em> können für jedes Ergebnis nur bestimmte Felder für die Ausgabe zugelassen werden. Zusätzliche Formate können durch die Installation von Modulen hinzugefügt werden um Drupals Grundfunktionalität zu <em>erweitern</em>.'
+    weight: 4
+    attributes:
+      data-class: views-ui-display-tab-bucket.format
+  views-ui-fields:
+    id: views-ui-fields
+    plugin: text
+    label: Felder
+    body: 'Wenn diese Ansicht Felder verwendet, so werden sie hier aufgelistet. Sie können auf ein Feld klicken um es zu konfigurieren.'
+    weight: 5
+    attributes:
+      data-class: views-ui-display-tab-bucket.field
+  views-ui-filter:
+    id: views-ui-filter
+    plugin: text
+    label: 'Ansicht filtern'
+    body: 'Filter hinzufügen um die Ergebnisse der Ausgabe zu begrenzen. Zum Beispiel, damit nur Inhalte angezeigt werden die <em>veröffentlicht</em> sind, würde ein Filter mit  <em>Veröffentlicht</em> hinzugefügt und <em>Ja</em> ausgewählt.'
+    weight: 6
+    attributes:
+      data-class: views-ui-display-tab-bucket.filter
+  views-ui-filter-operations:
+    id: views-ui-filter-operations
+    plugin: text
+    label: Filteraktionen
+    body: 'Filter hinzufügen, umsortieren oder entfernen.'
+    weight: 7
+    attributes:
+      data-class: 'views-ui-display-tab-bucket.filter .dropbutton-widget'
+  views-ui-sorts:
+    id: views-ui-sorts
+    plugin: text
+    label: Sortierkriterium
+    body: 'Die Reihenfolge steuern, in der die Ergebnisse ausgegeben werden. Auf eine aktive Sortierregel klicken, um diese zu konfigurieren.'
+    weight: 8
+    attributes:
+      data-class: views-ui-display-tab-bucket.sort
+  views-ui-sorts-operations:
+    id: views-ui-sorts-operations
+    plugin: text
+    label: Sortieraktionen
+    body: 'Sortierregeln hinzufügen, umsortieren oder entfernen.'
+    weight: 9
+    attributes:
+      data-class: 'views-ui-display-tab-bucket.sort .dropbutton-widget'
+  views-ui-preview:
+    id: views-ui-preview
+    plugin: text
+    label: Preview
+    body: 'Vorschau der Ansicht anzeigen.'
+    weight: 10
+    location: left
+    attributes:
+      data-id: preview-submit

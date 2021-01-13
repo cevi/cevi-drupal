@@ -1,0 +1,10 @@
+uuid: 96132e3a-d3e1-45dc-a42e-a078ebca4ebe
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7yrlW5z9zdg2eBucB2GPqXKSMQfH9lSRSO4DbWF7AFc
+id: footer
+label: Fussbereich
+description: 'Links zu Website-Informationen'
+locked: true

@@ -1,0 +1,43 @@
+uuid: 18850177-b0a4-44d4-9941-9f609c731181
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_intro_paragraphs
+    - node.type.landingpage
+    - paragraphs.paragraphs_type.landingpage_intro_link
+  module:
+    - entity_reference_revisions
+id: node.landingpage.field_intro_paragraphs
+field_name: field_intro_paragraphs
+entity_type: node
+bundle: landingpage
+label: 'Landingpage Intros'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      landingpage_intro_link: landingpage_intro_link
+    target_bundles_drag_drop:
+      landingpage_intro_link:
+        enabled: true
+        weight: 6
+      form:
+        weight: 7
+        enabled: false
+      formular:
+        weight: 8
+        enabled: false
+      person:
+        weight: 9
+        enabled: false
+      text:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

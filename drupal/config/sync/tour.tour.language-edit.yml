@@ -1,0 +1,51 @@
+uuid: 84b910fd-4fd4-430b-bd42-e00a5ff932ba
+langcode: de
+status: true
+dependencies:
+  module:
+    - language
+_core:
+  default_config_hash: uwUxQwqEzjNphw2r1_eXr3GJkw1uI0gWkmWQ6J5OvPI
+id: language-edit
+label: 'Sprachen bearbeiten'
+module: language
+routes:
+  -
+    route_name: entity.configurable_language.edit_form
+tips:
+  language-edit-overview:
+    id: language-edit-overview
+    plugin: text
+    label: 'Sprachen bearbeiten'
+    body: '<p>Diese Seite bietet die Möglichkeit eine Sprache auf der Website, einschließlich benutzerdefinierter Sprachen, zu bearbeiten.</p>'
+    weight: 1
+  language-edit-langcode:
+    id: language-edit-langcode
+    plugin: text
+    label: Sprachkürzel
+    body: '<p>Das Sprachkürzel einer Sprache kann auf der Website nicht geändert werde, da es vom System zum Identifizieren der Sprache genutzt wird.</p>'
+    weight: 2
+    attributes:
+      data-id: edit-langcode-view
+  language-edit-label:
+    id: language-edit-label
+    plugin: text
+    label: Sprachname
+    body: '<p>Der Name der Sprache wird für alle Benutzer der Website in Englisch angezeigt. Die Namen von mitgelieferten Sprachen kann mit dem Interface Translation-Modul und Namen von mitgelieferten sowie benutzerdefinierten Sprache kann mit dem Configuration Translation-Modul übersetzt werden.</p>'
+    weight: 3
+    attributes:
+      data-id: edit-label
+  language-edit-direction:
+    id: language-edit-direction
+    plugin: text
+    label: Sprachlaufrichtung
+    body: '<p>Auswählen ob es sich um eine „Links-nach-rechts“ oder „Rechts-nach-links“ Sprache handelt.</p><p>Beachte, dass nicht alle Themes „Rechts-nach-links“ Layouts unterstützen. Sollte „Rechts-nach-links“ ausgewählt sein, das verwendete Theme im Hinblick darauf testen.</p>'
+    weight: 4
+    attributes:
+      data-id: edit-direction--wrapper--description
+  language-edit-continue:
+    id: language-edit-continue
+    plugin: text
+    label: 'Fortsetzen auf'
+    body: '<p>Nachdem sich ein Überblick über die „Sprache bearbeiten“ Funktion verschafft wurde, geht es hiermit weiter:<ul><li>Eine Sprache bearbeiten</li><li><a href="[site:url]admin/config/regional/language">Die eingerichteten Sprachen anzeigen</a></li></ul></p>'
+    weight: 5

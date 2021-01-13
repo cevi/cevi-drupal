@@ -1,0 +1,10 @@
+uuid: 40a2db88-35a1-44f7-8bf5-681863bff64f
+langcode: de
+status: true
+dependencies:
+  module:
+    - user
+id: user.profile_small
+label: profile_small
+targetEntityType: user
+cache: true

@@ -1,0 +1,15 @@
+uuid: 18c64539-0de4-4100-9f45-76be498037b8
+langcode: de
+status: true
+dependencies: {  }
+name: background_desktop
+label: 'Hintergrund Desktop'
+effects:
+  fdb60889-3651-41d0-9d5e-5f20bcced19d:
+    uuid: fdb60889-3651-41d0-9d5e-5f20bcced19d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 1200
+      anchor: center-center

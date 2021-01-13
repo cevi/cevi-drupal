@@ -1,0 +1,9 @@
+uuid: e2d58cdd-fcb5-4354-94f3-66a953547e64
+langcode: de
+status: true
+dependencies: {  }
+id: landingpage_intro_link
+label: 'Landingpage Intro Link'
+icon_uuid: null
+description: 'Auf der Landing-Page ein Link hinzufügen, der mit mehr Information (Thema / Titel) angereichert ist.'
+behavior_plugins: {  }

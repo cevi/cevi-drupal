@@ -1,0 +1,52 @@
+uuid: fb79ae8c-e4aa-429b-b236-61755557df40
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraph_default
+    - node.type.defaultpage
+    - paragraphs.paragraphs_type.landingpage_intro_link
+  module:
+    - entity_reference_revisions
+id: node.defaultpage.field_paragraph_default
+field_name: field_paragraph_default
+entity_type: node
+bundle: defaultpage
+label: Inhaltselement
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles:
+      landingpage_intro_link: landingpage_intro_link
+    target_bundles_drag_drop:
+      form:
+        weight: 6
+        enabled: false
+      formular:
+        enabled: true
+        weight: 7
+      image_full:
+        weight: 7
+        enabled: false
+      landingpage_intro_link:
+        enabled: true
+        weight: 8
+      map:
+        weight: 8
+        enabled: false
+      map_geoadmin:
+        weight: 9
+        enabled: false
+      person:
+        weight: 9
+        enabled: false
+      text:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

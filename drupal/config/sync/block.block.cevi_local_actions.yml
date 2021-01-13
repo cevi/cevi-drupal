@@ -1,0 +1,20 @@
+uuid: 43ea9fcf-2256-4ca0-bcd8-92b1d4f3266c
+langcode: de
+status: false
+dependencies:
+  theme:
+    - cevi
+_core:
+  default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
+id: cevi_local_actions
+theme: cevi
+region: content
+weight: -3
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primäre Admin-Aktionen'
+  provider: core
+  label_display: '0'
+visibility: {  }

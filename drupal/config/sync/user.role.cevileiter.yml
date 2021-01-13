@@ -1,0 +1,10 @@
+uuid: 15e4fe6f-beee-4fbb-98f8-22f9b3a66f5e
+langcode: de
+status: true
+dependencies: {  }
+id: cevileiter
+label: Cevileiter
+weight: 4
+is_admin: null
+permissions:
+  - 'use text format basic_html'

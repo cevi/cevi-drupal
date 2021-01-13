@@ -1,0 +1,21 @@
+uuid: ca30b248-facb-4da9-897a-91f1fa3b4fae
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_theme
+field_name: field_theme
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

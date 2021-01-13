@@ -1,0 +1,25 @@
+uuid: e1ba929f-25db-4286-b263-65d83294c1d3
+langcode: de
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - ceviadmin
+_core:
+  default_config_hash: NDwadleLD3YVSbDUaakxyYZyINYtkFtOVGShfq4kWy8
+id: ceviadmin_branding
+theme: ceviadmin
+region: header
+weight: -2
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: true
+visibility: {  }

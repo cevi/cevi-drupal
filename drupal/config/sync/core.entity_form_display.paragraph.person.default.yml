@@ -1,0 +1,43 @@
+uuid: a493a910-af30-4bb5-8408-93a010592aed
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person.field_function
+    - field.field.paragraph.person.field_person
+    - field.field.paragraph.person.field_turn_color_box
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.default
+targetEntityType: paragraph
+bundle: person
+mode: default
+content:
+  field_function:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_person:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_turn_color_box:
+    weight: 2
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

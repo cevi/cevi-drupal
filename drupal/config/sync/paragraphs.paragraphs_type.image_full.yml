@@ -1,0 +1,15 @@
+uuid: f2133574-ca2a-4b0a-85e3-58ff8dc04733
+langcode: de
+status: true
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
+id: image_full
+label: Bild
+icon_uuid: null
+description: 'Ein Bild, das über die volle Breite angezeigt wird.'
+behavior_plugins: {  }

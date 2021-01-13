@@ -1,0 +1,19 @@
+uuid: f3f55de2-3168-4b6d-bef5-26bb54f2ced0
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_clear
+    - paragraphs.paragraphs_type.highlight
+id: paragraph.highlight.field_text_clear
+field_name: field_text_clear
+entity_type: paragraph
+bundle: highlight
+label: Highlight
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,22 @@
+uuid: ccc40112-b7cc-4991-8ca5-4a6244022fa2
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_map_swisstopo
+    - paragraphs.paragraphs_type.map_swisstopo
+  module:
+    - swisstopo
+id: paragraph.map_swisstopo.field_map_swisstopo
+field_name: field_map_swisstopo
+entity_type: paragraph
+bundle: map_swisstopo
+label: Kartenausschnitt
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  marker: {  }
+field_type: field_swisstopo

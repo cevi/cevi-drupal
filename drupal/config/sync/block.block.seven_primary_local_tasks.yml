@@ -1,0 +1,22 @@
+uuid: 37f99dff-bccc-4c3b-ac48-789f2e71bcde
+langcode: de
+status: true
+dependencies:
+  theme:
+    - seven
+_core:
+  default_config_hash: ddy1OsBbWxjwEI8VL1viD4I69qcLHOkul4BxbTqLBTs
+id: seven_primary_local_tasks
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Haupt-Reiter
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: false
+visibility: {  }

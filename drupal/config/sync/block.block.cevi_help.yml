@@ -1,0 +1,22 @@
+uuid: 05bdec45-8ec3-4347-82f5-570effd68c5a
+langcode: de
+status: false
+dependencies:
+  module:
+    - help
+  theme:
+    - cevi
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: cevi_help
+theme: cevi
+region: content
+weight: -4
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Hilfe
+  provider: help
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,31 @@
+uuid: 3dc26b73-f1c6-4b68-bb04-c82b95aba8fd
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.download_file.field_file
+    - field.field.paragraph.download_file.field_name
+    - paragraphs.paragraphs_type.download_file
+  module:
+    - file
+id: paragraph.download_file.default
+targetEntityType: paragraph
+bundle: download_file
+mode: default
+content:
+  field_file:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: file_url_plain
+    region: content
+  field_name:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

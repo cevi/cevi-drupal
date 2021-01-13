@@ -1,0 +1,10 @@
+uuid: 9ac2cf30-9a36-4366-a604-756306d0cb60
+langcode: de
+status: true
+dependencies:
+  module:
+    - user
+id: user.profile_intern
+label: profile_intern
+targetEntityType: user
+cache: true

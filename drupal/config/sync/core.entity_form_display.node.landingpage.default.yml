@@ -1,0 +1,73 @@
+uuid: 114574a9-8c2f-4088-8d6d-36d81924c701
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.node.landingpage.field_image_slider_media
+    - field.field.node.landingpage.field_intro_paragraphs
+    - node.type.landingpage
+  module:
+    - field_group
+    - media_library
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_background_images:
+      children:
+        - field_image_slider
+        - field_image_slider_media
+      parent_name: ''
+      weight: 20
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: Hintergrund-Bilder
+      region: content
+id: node.landingpage.default
+targetEntityType: node
+bundle: landingpage
+mode: default
+content:
+  field_image_slider_media:
+    type: media_library_widget
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_intro_paragraphs:
+    type: paragraphs
+    weight: 27
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: all
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: landingpage_intro_link
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true

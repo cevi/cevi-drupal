@@ -1,0 +1,25 @@
+uuid: 720e6928-658f-4c46-8e1b-16b47452fc1a
+langcode: de
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.defaultpage.field_paragraph_default
+    - field.field.node.defaultpage.field_title
+    - node.type.defaultpage
+  module:
+    - user
+id: node.defaultpage.teaser
+targetEntityType: node
+bundle: defaultpage
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_paragraph_default: true
+  field_title: true
+  langcode: true

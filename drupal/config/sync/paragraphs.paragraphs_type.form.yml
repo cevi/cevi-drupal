@@ -1,0 +1,9 @@
+uuid: be8124b4-6a21-4130-91ef-3d1f4b4fc568
+langcode: de
+status: true
+dependencies: {  }
+id: form
+label: Formular
+icon_uuid: null
+description: 'Direkte Einbindung eines Formulars.'
+behavior_plugins: {  }

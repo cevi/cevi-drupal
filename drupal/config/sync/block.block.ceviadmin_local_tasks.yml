@@ -1,0 +1,22 @@
+uuid: cdf60684-a964-446a-bed1-544f7442a01c
+langcode: de
+status: false
+dependencies:
+  theme:
+    - ceviadmin
+_core:
+  default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
+id: ceviadmin_local_tasks
+theme: ceviadmin
+region: content
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

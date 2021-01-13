@@ -1,0 +1,28 @@
+uuid: 9d733b4a-1322-4d07-85ad-4fab7404f78e
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image_slider_media
+    - media.type.image
+    - node.type.landingpage
+id: node.landingpage.field_image_slider_media
+field_name: field_image_slider_media
+entity_type: node
+bundle: landingpage
+label: 'Bilder-Slider Media'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

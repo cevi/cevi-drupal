@@ -1,0 +1,28 @@
+uuid: 5cc28543-20c8-47f0-9510-6bb51d01b396
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_person
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.field_person
+field_name: field_person
+entity_type: paragraph
+bundle: person
+label: Person
+description: 'Tippe den Usernamen ins Autocomplete-Feld, um einen User hinzuzufügen.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: false
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

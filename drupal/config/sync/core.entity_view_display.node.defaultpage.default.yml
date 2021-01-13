@@ -1,0 +1,40 @@
+uuid: 871d9506-8bdf-44f5-bd2b-7a655e6882cc
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.node.defaultpage.field_paragraph_default
+    - field.field.node.defaultpage.field_title
+    - node.type.defaultpage
+  module:
+    - entity_reference_revisions
+    - user
+id: node.defaultpage.default
+targetEntityType: node
+bundle: defaultpage
+mode: default
+content:
+  field_paragraph_default:
+    type: entity_reference_revisions_entity_view
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

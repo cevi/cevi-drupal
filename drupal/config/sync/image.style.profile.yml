@@ -1,0 +1,17 @@
+uuid: eaf0a802-5c67-48d7-84df-0ac83017aafa
+langcode: de
+status: true
+dependencies:
+  module:
+    - focal_point
+name: profile
+label: Profilbild
+effects:
+  a5a5c4a1-7da7-442c-ac0d-ee1edfcd128e:
+    uuid: a5a5c4a1-7da7-442c-ac0d-ee1edfcd128e
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 900
+      height: 300
+      crop_type: focal_point

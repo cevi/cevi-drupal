@@ -1,0 +1,24 @@
+uuid: 0877cee5-c361-4e31-b5fe-8576842fcf13
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_swisstopo.field_map_swisstopo
+    - paragraphs.paragraphs_type.map_swisstopo
+  module:
+    - swisstopo
+id: paragraph.map_swisstopo.default
+targetEntityType: paragraph
+bundle: map_swisstopo
+mode: default
+content:
+  field_map_swisstopo:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: swisstopo_widget
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

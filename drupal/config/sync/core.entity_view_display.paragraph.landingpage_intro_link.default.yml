@@ -1,0 +1,45 @@
+uuid: 7090d526-a7ff-451a-9231-4f379c247adf
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.landingpage_intro_link.field_link
+    - field.field.paragraph.landingpage_intro_link.field_theme
+    - field.field.paragraph.landingpage_intro_link.field_title
+    - paragraphs.paragraphs_type.landingpage_intro_link
+  module:
+    - link
+id: paragraph.landingpage_intro_link.default
+targetEntityType: paragraph
+bundle: landingpage_intro_link
+mode: default
+content:
+  field_link:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: null
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    type: link_separate
+    region: content
+  field_theme:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

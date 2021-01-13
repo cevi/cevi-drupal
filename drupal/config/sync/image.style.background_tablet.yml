@@ -1,0 +1,15 @@
+uuid: c99eb403-9b0f-48e9-9db2-a1eb016d5d0d
+langcode: de
+status: true
+dependencies: {  }
+name: background_tablet
+label: 'Hintergrund Tablet'
+effects:
+  e5cc1405-43bb-4b04-bdb6-591ca6e5ae95:
+    uuid: e5cc1405-43bb-4b04-bdb6-591ca6e5ae95
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1200
+      height: 1200
+      anchor: center-center

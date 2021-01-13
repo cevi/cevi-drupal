@@ -1,0 +1,9 @@
+uuid: ad88c37c-e3bd-4469-9b4a-ffb55af1e17b
+langcode: de
+status: true
+dependencies: {  }
+id: public_profile
+label: 'Öffentliche Person'
+weight: 3
+is_admin: null
+permissions: {  }

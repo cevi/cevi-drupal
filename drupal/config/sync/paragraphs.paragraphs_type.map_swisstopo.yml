@@ -1,0 +1,15 @@
+uuid: 40e62208-8f4e-4e7f-a09f-e22a086bc20a
+langcode: de
+status: true
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
+id: map_swisstopo
+label: 'Kartenausschnitt Swisstopo'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

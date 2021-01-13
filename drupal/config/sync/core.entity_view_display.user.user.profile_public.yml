@@ -1,0 +1,78 @@
+uuid: 63b57b76-90c6-4a9b-a29c-efd2ecc79c3d
+langcode: de
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.profile_public
+    - field.field.user.user.field_birthday
+    - field.field.user.user.field_email
+    - field.field.user.user.field_email_private
+    - field.field.user.user.field_firstname
+    - field.field.user.user.field_lastname
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_vulgo
+    - field.field.user.user.user_picture
+    - image.style.profile
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.profile_public
+targetEntityType: user
+bundle: user
+mode: profile_public
+content:
+  field_email:
+    weight: 4
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_firstname:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_lastname:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_phone:
+    type: string
+    weight: 5
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_vulgo:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: profile
+      image_link: ''
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  field_birthday: true
+  field_email_private: true
+  langcode: true
+  member_for: true

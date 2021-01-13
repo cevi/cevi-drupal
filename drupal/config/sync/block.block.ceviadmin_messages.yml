@@ -1,0 +1,22 @@
+uuid: f8feb9ca-755e-4ee8-a062-9df716c83fbd
+langcode: de
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ceviadmin
+_core:
+  default_config_hash: KHQIJ7Vfl25lTjzIc7qIvnuistt-Mw2O0kG4jCofmkI
+id: ceviadmin_messages
+theme: ceviadmin
+region: content
+weight: -6
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Status-Nachrichten
+  provider: system
+  label_display: '0'
+visibility: {  }

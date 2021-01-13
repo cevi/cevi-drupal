@@ -1,0 +1,14 @@
+uuid: 95cb42d1-63eb-4154-b820-b08c63b7249a
+langcode: de
+status: true
+dependencies:
+  config:
+    - user.role.cevileiter
+  module:
+    - user
+id: user_add_role_action.cevileiter
+label: 'Add the Cevileiter role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: cevileiter

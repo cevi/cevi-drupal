@@ -1,0 +1,15 @@
+uuid: 3f4da08a-b4bd-4183-a1fa-090778334afd
+langcode: de
+status: true
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
+id: download_file
+label: Datei
+icon_uuid: null
+description: 'Eine Datei zum herunterladen.'
+behavior_plugins: {  }

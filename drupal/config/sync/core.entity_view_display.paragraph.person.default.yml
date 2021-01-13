@@ -1,0 +1,41 @@
+uuid: cbcfbd52-d0d7-469e-9dad-217c10577d36
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.person.field_function
+    - field.field.paragraph.person.field_person
+    - field.field.paragraph.person.field_turn_color_box
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.default
+targetEntityType: paragraph
+bundle: person
+mode: default
+content:
+  field_function:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_person:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_turn_color_box:
+    weight: 2
+    label: hidden
+    settings:
+      format: boolean
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden: {  }

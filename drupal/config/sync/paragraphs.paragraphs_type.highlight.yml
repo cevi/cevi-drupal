@@ -1,0 +1,15 @@
+uuid: 37bc10d3-3ce1-4689-8a5b-05fb2f03a0c2
+langcode: de
+status: true
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
+id: highlight
+label: 'Highlight / Hervorhebung'
+icon_uuid: null
+description: 'Hebt einen Text (oder eben highlight) hervor.'
+behavior_plugins: {  }

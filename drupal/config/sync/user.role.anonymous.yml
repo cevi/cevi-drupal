@@ -1,0 +1,17 @@
+uuid: c8dbfda3-ffe6-488a-8059-0b98901c5d81
+langcode: de
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: Gast
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'administer webform element access'
+  - 'search content'
+  - 'use text format restricted_html'
+  - 'view media'

@@ -1,0 +1,22 @@
+uuid: ba4185da-6d6b-4e3f-bb3e-b182e1cff65c
+langcode: de
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - cevi
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: cevi_content
+theme: cevi
+region: content
+weight: -5
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: Haupt-Seiteninhalt
+  provider: system
+  label_display: '0'
+visibility: {  }

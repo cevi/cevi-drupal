@@ -1,0 +1,20 @@
+uuid: 6ed7ab2b-93b0-4cc0-80cc-81fc9439dd58
+langcode: de
+status: false
+dependencies:
+  theme:
+    - cevi
+_core:
+  default_config_hash: 7rR9chwXvdM2H8OYMAYx9Zj3GGlPMrZp_M3ZA4thYTk
+id: cevi_page_title
+theme: cevi
+region: content
+weight: -2
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: Seitentitel
+  provider: core
+  label_display: '0'
+visibility: {  }

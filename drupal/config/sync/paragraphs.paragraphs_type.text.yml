@@ -1,0 +1,9 @@
+uuid: eb71f3d3-3ca4-49fb-8e38-2c450bab187d
+langcode: de
+status: true
+dependencies: {  }
+id: text
+label: Textblock
+icon_uuid: null
+description: 'Ein normaler Textblock.'
+behavior_plugins: {  }

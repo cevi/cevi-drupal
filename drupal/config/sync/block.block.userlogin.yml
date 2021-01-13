@@ -1,0 +1,20 @@
+uuid: 70fd66e5-09ad-4c59-b8ba-3027c2468af7
+langcode: de
+status: true
+dependencies:
+  module:
+    - user
+  theme:
+    - gridonicadmin
+id: userlogin
+theme: gridonicadmin
+region: content
+weight: 0
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility: {  }

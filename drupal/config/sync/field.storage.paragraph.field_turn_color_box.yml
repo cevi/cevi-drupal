@@ -1,0 +1,18 @@
+uuid: c6d46a74-f28a-4a31-9f84-f167a962cf09
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_turn_color_box
+field_name: field_turn_color_box
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

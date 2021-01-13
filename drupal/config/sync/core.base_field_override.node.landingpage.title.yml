@@ -1,0 +1,18 @@
+uuid: 6e11285a-a81c-4f5b-a3fc-18aa7bdd7c1d
+langcode: de
+status: true
+dependencies:
+  config:
+    - node.type.landingpage
+id: node.landingpage.title
+field_name: title
+entity_type: node
+bundle: landingpage
+label: 'Interner Titel'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

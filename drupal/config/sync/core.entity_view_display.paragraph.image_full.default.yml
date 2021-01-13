@@ -1,0 +1,25 @@
+uuid: c1815c9e-accd-45da-a881-4e58a0f7a425
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_full.field_image_full
+    - image.style.background_desktop
+    - paragraphs.paragraphs_type.image_full
+  module:
+    - media
+id: paragraph.image_full.default
+targetEntityType: paragraph
+bundle: image_full
+mode: default
+content:
+  field_image_full:
+    type: media_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: background_desktop
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

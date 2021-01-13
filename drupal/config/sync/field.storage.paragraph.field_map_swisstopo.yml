@@ -1,0 +1,21 @@
+uuid: 8d197c50-8e8d-4bd7-b1a2-16d282645486
+langcode: de
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - swisstopo
+id: paragraph.field_map_swisstopo
+field_name: field_map_swisstopo
+entity_type: paragraph
+type: field_swisstopo
+settings:
+  marker:
+    - '24'
+module: swisstopo
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

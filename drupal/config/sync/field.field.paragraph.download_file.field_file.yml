@@ -1,0 +1,27 @@
+uuid: 3680ea2a-b97c-4b25-8234-21a0fe49ef0e
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file
+    - paragraphs.paragraphs_type.download_file
+  module:
+    - file
+id: paragraph.download_file.field_file
+field_name: field_file
+entity_type: paragraph
+bundle: download_file
+label: Datei
+description: 'Hier kannst du ein PDF hochladen, welches von den Usern dann heruntergeladen & angeschaut werden kann. Bitte lade keine .doc, .docx, .xls, .xlsx - Dateien hoch, diese können vom User verändert werden.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: downloads
+  file_extensions: pdf
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

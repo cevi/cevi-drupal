@@ -1,0 +1,15 @@
+uuid: 106b35bf-2061-4843-927b-bd34457d4734
+langcode: de
+status: true
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
+id: image_slider
+label: 'Bilder Slider'
+icon_uuid: null
+description: 'Mehrere Bilder als Slider, analog wie auf der Startseite, aber in der Grösse vom jeweiligen Bild.'
+behavior_plugins: {  }

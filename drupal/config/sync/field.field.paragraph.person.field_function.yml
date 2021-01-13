@@ -1,0 +1,19 @@
+uuid: af0c2e42-2afc-4f96-88a7-c9f4209f0506
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_function
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.field_function
+field_name: field_function
+entity_type: paragraph
+bundle: person
+label: Funktion
+description: 'Gib für die Person eine Funktion an. (optional)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

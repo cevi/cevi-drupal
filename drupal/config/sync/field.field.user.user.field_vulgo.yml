@@ -1,0 +1,20 @@
+uuid: 650cab1f-8992-491b-a6cb-4d1e8fee6237
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_vulgo
+  module:
+    - user
+id: user.user.field_vulgo
+field_name: field_vulgo
+entity_type: user
+bundle: user
+label: Ceviname
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

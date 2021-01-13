@@ -1,0 +1,23 @@
+uuid: 2e42a584-764d-4250-a020-d6e1881a287c
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_turn_color_box
+    - paragraphs.paragraphs_type.person
+id: paragraph.person.field_turn_color_box
+field_name: field_turn_color_box
+entity_type: paragraph
+bundle: person
+label: 'Foto / Text drehen'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Foto / Text'
+  off_label: 'Text / Foto'
+field_type: boolean

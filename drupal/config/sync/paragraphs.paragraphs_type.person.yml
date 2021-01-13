@@ -1,0 +1,9 @@
+uuid: a034d9c5-b4d0-4173-83df-8a38edcfdd7e
+langcode: de
+status: true
+dependencies: {  }
+id: person
+label: Person
+icon_uuid: null
+description: 'Fügt eine Person hinzu, verlinkt einen User.'
+behavior_plugins: {  }

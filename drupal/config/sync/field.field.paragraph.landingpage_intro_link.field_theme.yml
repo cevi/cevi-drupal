@@ -1,0 +1,19 @@
+uuid: 97eee29d-05a3-46ba-b910-cf93945025d3
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_theme
+    - paragraphs.paragraphs_type.landingpage_intro_link
+id: paragraph.landingpage_intro_link.field_theme
+field_name: field_theme
+entity_type: paragraph
+bundle: landingpage_intro_link
+label: Thema
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
