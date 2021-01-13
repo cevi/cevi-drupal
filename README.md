@@ -30,6 +30,11 @@ Lokaler Server so einrichten, dass die Webseite im Verzeichnis `./drupal/web` au
 1) `$ composer install`
 
 1) Drupal installieren: Seite besuchen und Installation starten.
+Installationsprogramm kann unter DOMAIN//core/install.php aufgerufen werden. Diese Seite wird automatisch geladen.
+   
+    1) Sprache: Deutsch
+    1) Installationsprofil: Standard
+    1) Eigene Informationen eingeben (Name der Webseite, Emailadresse, Admin-User, ...)
 
 1) `$ vendor/bin/drush cim`
 Importiert die Konfiguration für die ganze Webseite.

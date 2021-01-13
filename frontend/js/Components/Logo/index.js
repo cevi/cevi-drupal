@@ -5,7 +5,7 @@ import TextToSVG from 'text-to-svg';
 import Drupal from '../../Helper/Drupal';
 
 /**
- * @author Beat Temperli <beat@gridonic.ch>
+ * @author Beat Temperli <beat@temper.li>
  */
 export default class Logo {
     constructor() {

@@ -5,9 +5,9 @@ dependencies:
   module:
     - user
   theme:
-    - gridonicadmin
+    - ceviadmin
 id: userlogin
-theme: gridonicadmin
+theme: ceviadmin
 region: content
 weight: 0
 provider: null

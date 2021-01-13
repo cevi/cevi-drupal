@@ -2,7 +2,7 @@
 import $ from 'jquery';
 
 /**
- * @author Beat Temperli <beat@gridonic.ch>
+ * @author Beat Temperli <beat@temper.li>
  */
 export default class Toggler {
     constructor({
