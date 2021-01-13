@@ -1,0 +1,4 @@
+default:
+  css:
+    base:
+      assets/css/styles.css: {}

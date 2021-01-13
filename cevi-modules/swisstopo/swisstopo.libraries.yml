@@ -1,0 +1,21 @@
+default:
+    version: 1.x
+
+    css:
+      component:
+        assets/css/swisstopo.css: {}
+
+    js:
+      assets/js/swisstopo.js: {}
+
+    dependencies:
+      - core/jquery
+
+api:
+  remote: https://api3.geo.admin.ch
+  version: 4.4.2
+  license:
+    name: CC
+    url: https://www.geo.admin.ch/de/geo-services/geo-services/portrayal-services-web-mapping/programming-interface-api/order_form.html
+  js:
+    https://api3.geo.admin.ch/loader.js: { type: external }

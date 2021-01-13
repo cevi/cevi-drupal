@@ -1,0 +1,97 @@
+{
+  "name": "cevi-drupal",
+  "version": "1.0.0",
+  "description": "Website for cevi groups",
+  "main": "frontend/js/App.js",
+  "scripts": {
+    "build": "npm run clean && npm run lint && npm run sass && npm run js && npm run modernizr && npm run minify && npm run copy",
+    "clean": "rm -rf ./cevi-themes/cevi/assets",
+    "drupal-cevi-update": "cd drupal && composer install && php ./vendor/bin/drush updb -y && php ./vendor/bin/drush cr && cd ..",
+    "copy": "node npm_run/copy.js",
+    "js": "browserify frontend/js/App.js -o ./cevi-themes/cevi/assets/js/scripts.js",
+    "js-lint": "eslint frontend/js",
+    "js-watch": "watchify ./frontend/js/App.js -o ./cevi-themes/cevi/assets/js/scripts.js --verbose",
+    "lint": "npm run sass-lint && npm run js-lint",
+    "minify": "npm run minify-js && rm ./cevi-themes/cevi/assets/js/scripts.js",
+    "minify-js": "uglifyjs ./cevi-themes/cevi/assets/js/scripts.js -c -m -o ./cevi-themes/cevi/assets/js/scripts.min.js",
+    "modernizr": "./node_modules/modernizr/bin/modernizr -f=flexbox,flexboxtweener -u -d=./cevi-themes/cevi/assets/js/modernizr.min.js",
+    "sass-watch": "node-sass --watch frontend/sass -o ./cevi-themes/cevi/assets/css",
+    "sass": "node-sass frontend/sass -o ./cevi-themes/cevi/assets/css --output-style compressed",
+    "sass-lint": "stylelint frontend/sass",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm run js-watch sass-watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cevi/cevi-drupal"
+  },
+  "author": "Beat Temperli v/o Zottel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cevi/cevi-drupal/issues"
+  },
+  "homepage": "https://drupal.cevi.ch",
+  "dependencies": {
+    "canvg": "^3.0.7",
+    "font-awesome": "^4.7.0",
+    "include-media": "^1.4.9",
+    "jquery": "^3.4.1",
+    "leaflet": "^1.6.0",
+    "modernizr": "^3.11.4",
+    "mq-scss": "^2.1.5",
+    "normalize.css": "^7.0.0",
+    "text-to-svg": "^3.1.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "babelify": "^10.0.0",
+    "browserify": "^16.5.0",
+    "browserify-ejs-tran": "git+https://git@github.com/btemperli/browserify-ejs-tran.git",
+    "browserify-shim": "^3.8.14",
+    "copy": "^0.3.2",
+    "deamdify": "^0.3.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.18.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "node-minify": "^3.6.0",
+    "node-sass": "^4.12.0",
+    "stylelint": "^13.0.0",
+    "stylelint-config-standard": "^19.0.0",
+    "stylelint-rscss": "^0.4.0",
+    "uglify-js": "^3.8.0",
+    "watchify": "^3.11.1"
+  },
+  "keywords": [
+    "cevi",
+    "cevi-drupal",
+    "cevi-waedi"
+  ],
+  "browser": {
+    "fs": "./node_modules/browserify-fs/index.js"
+  },
+  "browserify-shim": {},
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            [
+              "@babel/preset-env",
+              {
+                "debug": true
+              }
+            ]
+          ]
+        }
+      ],
+      "browserify-ejs-tran",
+      "browserify-shim",
+      "deamdify"
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Contains the swisstopo.module file.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function swisstopo_theme() {
+  return [
+    'swisstopo_map' => [
+      'variables' => [
+        'x' => NULL,
+        'y' => NULL,
+        'zoom' => NULL,
+        'marker' => NULL,
+      ],
+    ],
+    'swisstopo_raw' => [
+      'variables' => [
+        'x' => NULL,
+        'y' => NULL,
+        'zoom' => NULL,
+        'marker' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function swisstopo_preprocess_field(&$variables) {
+  if (isset($variables['element']['#field_type']) && $variables['element']['#field_type'] === 'field_swisstopo') {
+    $variables['#attached']['library'][] = 'swisstopo/api';
+    $variables['#attached']['library'][] = 'swisstopo/default';
+  }
+}
+
+/**
+ * Implements hook_preprocess_file_link().
+ */
+function swisstopo_preprocess_file_link(&$variables) {
+//  if ($variables['link'] && $generated_link = $variables['link']->getGeneratedLink()) {
+//    if (strpos($generated_link, '/swisstopo_marker/') !== FALSE) {
+//      preg_match_all('/<a[^>]+href=([\'"])(?<href>.+?)\1[^>]*>/i', $generated_link, $result_preg_match);
+//      $image = $result_preg_match['href'][0];
+//      $variables['link']->setGeneratedLink('<div style="position: absolute; margin-left: -25px; width: 25px; height: 20px; background: white;">'
+//        . "<img style='max-height: 25px; width: auto;' src='$image'>"
+//        . '</div>'
+//        . $generated_link);
+//    }
+//  }
+}

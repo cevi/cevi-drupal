@@ -1,0 +1,130 @@
+/*
+---
+name: Typography
+tag:
+  - typography
+category:
+  - shared
+  - shared/typography
+sourcePath: /shared/_typography.scss
+---
+
+```html
+100: <span style="font-weight: 100">Thin</span><br>
+200: <span style="font-weight: 200">Extra Light (Ultra Light)</span><br>
+300: <span style="font-weight: 300">Light</span><br>
+400: <span style="font-weight: 400">Normal</span><br>
+500: <span style="font-weight: 500">Medium</span><br>
+600: <span style="font-weight: 600">Semi Bold (Demi Bold)</span><br>
+700: <span style="font-weight: 700">Bold</span><br>
+800: <span style="font-weight: 800">Extra Bold (Ultra Bold)</span><br>
+900: <span style="font-weight: 900">Black (Heavy)</span>
+```
+*/
+:root {
+    font-family: $base-font-family;
+    font-size: $base-font-size-mobile;
+
+    // Use responsive typography and adjust vertical rhythm at the same time
+    @include media(">=large") {
+        font-size: $base-font-size;
+    }
+}
+
+body {
+    color: $color-black;
+    line-height: vertical-base();
+}
+
+p {
+    max-width: 70ch;
+    line-height: 22px;
+}
+
+input,
+select,
+textarea {
+    font-family: $base-font-family;
+    font-size: $base-font-size-mobile;
+
+    @include media(">=large") {
+        font-size: $base-font-size;
+    }
+}
+
+/*
+---
+name: Headlines
+tag:
+  - typography
+category:
+  - shared
+  - shared/typography
+  - shared/typography/headlines
+sourcePath: /shared/_typography.scss
+---
+
+```html
+<h1 class="h1">h1: The quick brown fox jumps over the lazy dog.</h1>
+<h2 class="h2">h2: Pack my box with five dozen liquor jugs.</h2>
+<h3 class="h3">h3: Jackdaws love my big sphinx of quartz.</h3>
+<h4 class="h4">h4: Five quacking Zephyrs jolt my wax bed.</h4>
+<h5 class="h5">h5: The five boxing wizards jump quickly.</h5>
+<h6 class="h6">h6: Sphinx of black quartz judge my vow.</h6>
+```
+
+*/
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    @include headline;
+
+    margin-bottom: 0;
+    margin-top: 0;
+    text-rendering: $base-headline-rendering;
+}
+
+h1,
+.h1 {
+    font-size: 2.25rem;
+    line-height: vertical-base(2.5);
+}
+
+h2,
+.h2 {
+    font-size: 2rem;
+    line-height: vertical-base(2);
+}
+
+h3,
+.h3 {
+    font-size: 1.5rem;
+    line-height: vertical-base(1.5);
+}
+
+h4,
+.h4 {
+    font-size: 1.25rem;
+    line-height: vertical-base(1.25);
+}
+
+h5,
+.h5 {
+    font-size: 1.125rem;
+    line-height: vertical-base(1);
+}
+
+h6,
+.h6 {
+    font-size: 1rem;
+    line-height: vertical-base(1);
+}

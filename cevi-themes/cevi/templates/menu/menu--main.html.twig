@@ -1,0 +1,52 @@
+{# Main Menu #}
+{% import _self as menus %}
+
+<div class="menu-opener">
+  {% if hide_menu %}
+    {# do nothing #}
+  {% elseif show_menu %}
+    <a href="#" class="opener -showonmobile" data-toggle-class="-open" data-toggle-target=".menu-opener">
+      <i class="fa fa-bars"></i>
+    </a>
+  {% else %}
+    <a href="#" class="opener" data-toggle-class="-open" data-toggle-target=".menu-opener">
+      <i class="fa fa-bars"></i>
+    </a>
+  {% endif %}
+</div>
+
+{% if not hide_menu %}
+  <div class="menu-main {% if show_menu %}-opendesktop{% endif %}">
+    {{ menus.menu_links(items, attributes, 0) }}
+    {{ menu_footer }}
+    {% if menu_social_media %}
+      {% include '@cevi/menu/menu--social-media.html.twig'%}
+    {% endif %}
+  </div>
+{% endif %}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+
+    {% if menu_level == 0 %}
+      <ul class="navigation">{% if false %}</ul>{% endif %}
+    {% else %}
+      <ul class="navigation -sub">
+    {% endif %}
+
+    {% for item in items %}
+      <li{{ item.attributes.addClass('item') }}>
+        <span {% if item.below %}data-toggle-class="-opensub"{% endif %}>
+          {{ link(item.title, item.url) }}
+        </span>
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+
+    </ul>
+
+  {% endif %}
+{% endmacro %}

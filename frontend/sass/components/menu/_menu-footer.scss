@@ -1,0 +1,70 @@
+/*
+---
+name: Footer Menu
+tag:
+  - components
+  - menu
+category:
+  - components
+  - components/menu
+  - components/menu/footer
+sourcePath: /components/menu/_menu-footer.scss
+---
+
+This is the footer-menu, showed on the site directly after the main-menu. Just smaller.
+
+```html
+<ul class="menu-footer">
+    <li class="item"><a href="#">Lorem Ipsum</li>
+    <li class="item"><a href="#">Lorem Ipsum</li>
+    <li class="item"><a href="#">Lorem Ipsum</li>
+    <li class="item"><a href="#">Lorem Ipsum</li>
+</ul>
+```
+*/
+.menu-footer {
+    @include headline;
+
+    list-style: none;
+    font-size: $base-font-size-small;
+    font-weight: 800;
+    color: $color-secondary-light;
+    width: 100%;
+    margin: 0;
+    padding: 0 0 0 $base-vertical-margin;
+
+    @include media('>=large') {
+        padding-left: $base-vertical-margin * 2;
+    }
+
+    > .item {
+        float: left;
+        margin: $base-vertical-margin $base-vertical-margin / 2 $base-vertical-margin / 2;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        a { // stylelint-disable-line rscss/no-descendant-combinator
+            text-decoration: none;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+    &.-icons {
+        font-size: $base-font-size-small * 1.8;
+        height: 24px;
+        margin-bottom: $base-vertical-margin * 1.5;
+
+        > .item {
+            margin-top: 0;
+        }
+    }
+}

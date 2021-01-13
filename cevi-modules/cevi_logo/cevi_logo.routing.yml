@@ -1,0 +1,9 @@
+cevi_logo.generator:
+  path: '/logo-generator'
+  defaults:
+    _controller: '\Drupal\cevi_logo\Controller\LogoController::generator'
+    _title: 'Cevi Logo Generator'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'

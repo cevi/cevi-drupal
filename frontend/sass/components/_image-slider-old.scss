@@ -1,0 +1,113 @@
+/*
+---
+name: Image Slider
+tag:
+  - components
+  - image
+  - slider
+  - image-slider
+category:
+  - components
+  - components/image-slider
+sourcePath: /components/_image-slider.scss
+---
+
+*/
+@keyframes slide {
+    0% {
+        transform: translateX(0) translate3d(0, 0, 0);
+        z-index: -200;
+        opacity: 1;
+    }
+
+    60% {
+        // Looks better than 50% / -200% translateX.
+        transform: translateX(-240%) translate3d(0, 0, 0);
+        z-index: -180;
+        opacity: 1;
+    }
+
+    60.000001% { // stylelint-disable-line rscss/class-format
+        z-index: -210;
+        opacity: 0;
+    }
+
+    75% {
+        transform: translateX(0) translate3d(0, 0, 0);
+        z-index: -210;
+        opacity: 0;
+    }
+}
+
+.slide-show {
+    > .slider {
+        float: left;
+        position: absolute;
+        z-index: -200;
+        transform: translate3d(0, 0, 0);
+        animation-duration: 24s;
+        animation-timing-function: linear;
+        opacity: 0;
+
+        &.-active {
+            animation-name: slide;
+        }
+    }
+
+    &.-full {
+        width: calc(100vw - #{$cevi-line-size * 2});
+        left: 0;
+        height: calc(100vh - #{$base-header-height} - #{$cevi-line-size * 2});
+        top: $base-header-height + $cevi-line-size;
+        background-color: $color-background;
+        position: absolute;
+        z-index: -300;
+    }
+
+    &.-tablet,
+    &.-desktop {
+        @include hide-slider;
+
+        margin: 20px;
+
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            width: 20px;
+            height: 100%;
+            background-color: white;
+            z-index: 100;
+            transition: width;
+            transition-duration: 8s;
+        }
+
+        &::before {
+            left: -20px;
+        }
+
+        &::after {
+            right: -20px;
+        }
+    }
+
+    @include media('>=medium') {
+        &.-mobile {
+            @include hide-slider;
+        }
+
+        &.-tablet {
+            @include show-slider;
+        }
+    }
+
+    @include media('>=large') {
+        &.-tablet {
+            @include hide-slider;
+        }
+
+        &.-desktop {
+            @include show-slider;
+        }
+    }
+}

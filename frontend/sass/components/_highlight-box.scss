@@ -1,0 +1,52 @@
+/*
+---
+name: Highlight box
+tag:
+  - components
+  - highlight
+category:
+  - components
+  - components/highlight
+sourcePath: /components/_highlight-box.scss
+---
+
+<div>
+    <div class="highlight-box">
+        Lorem Ipsum
+    </div>
+</div>
+
+<div>
+    <div class="highlight-box">
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.
+    </div>
+</div>
+*/
+.highlight-box {
+    text-align: center;
+
+    > .content {
+        @include border-box;
+        @include headline;
+
+        @extend .h4;
+
+        color: $color-active;
+        padding: $cevi-line-size;
+        max-width: 90%;
+        display: inline-block;
+        transition: color $base-transition-speed linear;
+
+        &:hover {
+            color: $color-primary;
+        }
+
+        @include media('>=medium') {
+            max-width: 80%;
+        }
+
+        > .link {
+            text-decoration: none;
+        }
+    }
+}

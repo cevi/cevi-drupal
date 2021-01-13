@@ -1,0 +1,25 @@
+{% if not hide_header %}
+  {{ page.header }}
+
+  {{ page.primary_menu }}
+  {{ page.secondary_menu }}
+
+  {{ page.highlighted }}
+
+  {{ page.help }}
+
+  {% include '@cevi/include/drupal-messages.html.twig' %}
+{% endif %}
+
+<main class="main-content {% if hide_header %}-raw{% endif %} {% if show_menu %}-showmenu{% endif %}" role="main">
+  <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+  {{ page.content }}
+
+</main>
+
+{#{% if page.footer %}#}
+  {#<footer role="contentinfo">#}
+    {#{{ page.footer }}#}
+  {#</footer>#}
+{#{% endif %}#}

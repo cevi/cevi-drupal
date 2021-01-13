@@ -1,0 +1,14 @@
+{%
+  set classes = [
+  'paragraph',
+  'form-wrapper'
+]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+      <h2 class="h4 margin-top-2 margin-bottom">{{ webform_title }}</h2>
+      {{ content }}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

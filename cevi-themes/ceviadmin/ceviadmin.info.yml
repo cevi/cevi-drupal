@@ -1,0 +1,21 @@
+name: Cevi Admin Theme
+type: theme
+description: 'Admin theme for the cevi theme'
+package: Cevi
+core: 8.x
+libraries:
+  - ceviadmin/frontend
+base theme: seven
+regions:
+  header: 'Header'
+  pre_content: 'Pre-content'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+regions_hidden:
+  - sidebar_first
+  - cevi_main_menu

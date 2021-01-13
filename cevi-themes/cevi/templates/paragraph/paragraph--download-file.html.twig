@@ -1,0 +1,11 @@
+<div class="paragraph">
+  <div class="highlight-box">
+    <div class="content">
+      <a href="{{ content.field_file[0]['#markup'] }}" target="_blank" class="link">
+        <i class="fa fa-file-pdf-o"></i> {{ content.field_name }}
+      </a>
+
+      {{ content|without('field_name', 'field_file') }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+/*
+---
+name: Secondary button
+tag:
+  - components
+  - buttons
+category:
+  - components
+  - components/buttons
+  - components/buttons/secondary
+sourcePath: /components/buttons/_button-secondary.scss
+---
+
+The button with an easier visual weight is the secondary button.
+
+```html
+<button class="button-secondary">Secondary button</button>
+```
+*/
+.button-secondary {
+    @extend %button-secondary;
+}

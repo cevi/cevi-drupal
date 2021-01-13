@@ -1,0 +1,14 @@
+frontend:
+  css:
+    theme:
+      assets/css/styles.css: {}
+  js:
+    assets/js/scripts.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+modernizr:
+  header: true
+  js:
+    assets/js/modernizr.min.js: {}

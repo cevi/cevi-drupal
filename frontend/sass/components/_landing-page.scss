@@ -1,0 +1,48 @@
+/*
+---
+name: Landing-Page
+tag:
+  - components
+  - page
+  - landing-page
+category:
+  - components
+  - components/landing-page
+sourcePath: /components/_landing-page.scss
+---
+
+*/
+.landing-page {
+    @include headline;
+
+    height: 100vh;
+    width: calc(100vw - #{2 * $cevi-line-size});
+    top: 0;
+    left: $cevi-line-size;
+    right: $cevi-line-size;
+    position: fixed;
+    padding: ($base-header-height + $cevi-line-size) 0 $cevi-line-size;
+    background-color: $color-background;
+
+    > .partwrapper {
+        flex-direction: column;
+        display: flex;
+        height: 100%;
+        width: 100%;
+
+        @include media('>=large') {
+            flex-direction: row;
+        }
+    }
+}
+
+// stylelint-disable
+// Admin-Menu
+.toolbar-vertical .landing-page,
+.toolbar-horizontal.toolbar-fixed .landing-page {
+    padding-top: $base-header-height + 40px;
+}
+
+.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .landing-page {
+    padding-top: $base-header-height + 80px;
+}

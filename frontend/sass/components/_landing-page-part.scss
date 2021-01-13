@@ -1,0 +1,113 @@
+/*
+---
+name: Landing-Page Part / Item
+tag:
+  - components
+  - page
+  - landing-page
+category:
+  - components
+  - components/landing-page
+  - components/landing-page/part
+sourcePath: /components/_landing-page-part.scss
+---
+
+*/
+.landing-page-part {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: $color-white;
+    text-align: center;
+    flex-grow: 1;
+    flex-basis: 256px;
+    transition-duration: $base-transition-speed;
+    transition-timing-function: linear;
+    transition-property: background-color, color;
+    min-width: 0;
+    overflow: hidden;
+
+    > .content {
+        flex-grow: 1;
+        padding: $base-horizontal-margin $base-vertical-margin;
+        transition-duration: $base-transition-speed;
+        transition-timing-function: linear;
+        transition-property: margin-bottom;
+        min-width: 0;
+
+        > .theme {
+            margin-bottom: $base-horizontal-margin / 2;
+        }
+
+        > .title {
+            min-height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            > .h2 {
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+
+        > .link {
+            margin-top: $base-horizontal-margin / 2;
+        }
+    }
+
+    &:hover {
+        background-color: rgba($color-background, 0.6);
+        color: $color-black;
+    }
+
+    @media (max-height: 650px) {
+        &:nth-child(3) {
+            display: none;
+        }
+    }
+
+    @media (max-height: 480px) {
+        &:nth-child(2) {
+            display: none;
+        }
+    }
+
+    @include media('>=large') {
+        align-items: flex-end;
+
+        > .content {
+            margin-bottom: -260px;
+
+            > .title {
+                min-height: 72px;
+            }
+
+            > .theme {
+                margin-bottom: $base-horizontal-margin * 3;
+            }
+
+            > .link {
+                margin-bottom: $base-horizontal-margin * 3;
+                margin-top: $base-horizontal-margin;
+            }
+        }
+
+        &:hover {
+            > .content {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+// stylelint-disable
+.toolbar-fixed .landing-page-part {
+    &:first-child {
+        margin-top: $cevi-line-size - 1px;
+    }
+
+    @include media('>=large') {
+        margin-top: $cevi-line-size - 1px;
+    }
+}

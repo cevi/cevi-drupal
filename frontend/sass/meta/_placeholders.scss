@@ -1,0 +1,15 @@
+// -----------------------------------------------------------------------------
+// Define your global selectors in here!
+// -----------------------------------------------------------------------------
+
+%button-primary {
+    @include button($color-primary);
+}
+
+%button-active {
+    @include button($color-active);
+}
+
+%button-secondary {
+    @include button($color-secondary);
+}

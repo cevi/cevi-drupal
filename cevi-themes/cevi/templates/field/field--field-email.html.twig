@@ -1,0 +1,15 @@
+{% if label_hidden %}
+  {% for item in items %}
+    <p class="margin-bottom-0 margin-top-0">
+      {{ email_obfuscator(item.content) }}
+    </p>
+  {% endfor %}
+{% else %}
+  <p class="margin-bottom-0">
+    <b>{{ label }}</b>
+  </p>
+  {% for item in items %}
+    <p class="margin-bottom-0 margin-top-0">
+      {{ email_obfuscator(item.content) }}
+    </p>  {% endfor %}
+{% endif %}

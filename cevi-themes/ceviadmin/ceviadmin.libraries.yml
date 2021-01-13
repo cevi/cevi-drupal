@@ -1,0 +1,9 @@
+frontend:
+  css:
+    theme:
+      assets/css/styles.css: {}
+  js:
+    assets/js/scripts.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

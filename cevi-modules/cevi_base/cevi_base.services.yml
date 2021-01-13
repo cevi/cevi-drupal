@@ -1,0 +1,9 @@
+services:
+  cevi_base.email_twig_extension:
+    arguments: ['@renderer', '@url_generator', '@theme.manager', '@date.formatter']
+    class: Drupal\cevi_base\TwigExtension\EmailTwigExtension
+    tags:
+      - { name: twig.extension }
+  cevi_base.form_service:
+    class: Drupal\cevi_base\Service\CeviBaseFormService
+    arguments: ['@config.factory', '@entity_type.manager', '@file.usage', '@database']

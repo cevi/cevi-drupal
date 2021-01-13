@@ -1,0 +1,12 @@
+cevi_base.social_media_menu:
+  title: 'Social Media'
+  route_name: cevi_base.menu.social_media
+  description: 'The social media menu in the sidebar'
+  parent: entity.menu.collection
+  weight: 0
+system.cevi:
+  title: 'Cevi'
+  description: 'Cevi Admin Settings'
+  route_name: cevi_base.admin
+  parent: system.admin
+  weight: -7

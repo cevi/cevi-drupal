@@ -1,0 +1,240 @@
+<?php
+
+/**
+ * @file
+ * The Cevi-Theme. Based on the website https://cevi.ch.
+ */
+
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Render\Element\StatusMessages;
+use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_preprocess().
+ *
+ * Set global assets-folder.
+ */
+function cevi_preprocess(&$variables) {
+  $variables['assets'] = '/' . drupal_get_path('theme', 'cevi') . '/assets';
+}
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Set correct page-title.
+ */
+function cevi_preprocess_html(&$variables) {
+  $config = Drupal::config('system.site');
+  $name = $config->get('name');
+  $variables['site_name'] = $name;
+
+  $iframe = Drupal::request()->query->get('iframe');
+  if ((bool) $iframe) {
+    $variables['body_class'] = 'iframe';
+  }
+
+  if ($node = Drupal::routeMatch()->getParameter('node')) {
+    try {
+      if ($node->get('field_title') && $node->get('field_title')->getValue()) {
+        $field_title = $node->get('field_title')->getValue()[0]['value'];
+        if ($field_title !== $name) {
+          $variables['head_title']['title'] = html_entity_decode($node->get('field_title')->getValue()[0]['value'] . ' | ' . $name);
+        }
+        else {
+          $variables['head_title']['title'] = $field_title;
+        }
+      }
+    }
+    catch (Exception $e) {
+      // Do nothing.
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ *
+ * Switch field_names and preprocess the content.
+ * - Case field_image_slider: prepare 3 image-sizes for best responsive
+ *   handling.
+ * - Case field_intro_paragraphs: remove all content expect of the first 3.
+ */
+function cevi_preprocess_field(&$variables, $hook) {
+  $element = isset($variables['element']) ? $variables['element'] : FALSE;
+  if ($element && isset($element['#field_name'])) {
+    switch ($element['#field_name']) {
+      case 'field_image_slider_media':
+        /** @var \Drupal\file\Plugin\Field\FieldType\FileFieldItemList $items */
+        $items = $element['#items'];
+
+        $i = 0;
+        $items_count = $items->count();
+        while ($i < $items_count) {
+          $item = $items->get($i);
+          /** @var Drupal\media\Entity\Media $media_entity */
+          $media_entity = $item->entity;
+          $image_entity = $media_entity->get('field_media_image')->entity;
+          $image_data = $media_entity->get('field_media_image')->get(0);
+          $image_name = $media_entity->getName();
+          $image_alt = $image_data->get('alt')->getValue();
+          $image_uri = $image_entity->getFileUri();
+          $image_url_desktop = ImageStyle::load('background_desktop')->buildUrl($image_uri);
+          $image_url_tablet = ImageStyle::load('background_tablet')->buildUrl($image_uri);
+          $image_url_mobile = ImageStyle::load('background_mobile')->buildUrl($image_uri);
+
+          $variables['field_image_slider_media'][$i] = [
+            'original' => $image_uri,
+            'name' => $image_name,
+            'alt' => $image_alt,
+            'desktop' => $image_url_desktop,
+            'tablet' => $image_url_tablet,
+            'mobile' => $image_url_mobile,
+          ];
+
+          $i++;
+        }
+        break;
+
+      case 'field_intro_paragraphs':
+        while ($element['#items']->count() > 3) {
+          $element['#items']->removeItem(3);
+          unset($element[3]);
+          unset($variables['element'][3]);
+          unset($variables['items'][3]);
+        }
+
+        $variables['element']['#items'] = $element['#items'];
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_menu__type().
+ */
+function cevi_preprocess_menu__main(&$variables) {
+  $node = Drupal::routeMatch()->getParameter('node');
+  $variables['show_menu'] = $node ? _cevi_show_menu($node) : TRUE;
+  $variables['menu_footer'] = _cevi_load_rendered_menu('footer');
+  if (Drupal::service('cevi_base.form_service')) {
+    /** @var \Drupal\cevi_base\Service\CeviBaseFormService $ceviBaseFormService */
+    $ceviBaseFormService = Drupal::service('cevi_base.form_service');
+    $variables['menu_social_media'] = $ceviBaseFormService->loadSocialMediaLinks();
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ *
+ * Move admin-tabs and status-messages to the global page-object.
+ */
+function cevi_preprocess_page(&$variables) {
+  $variables['tabs'] = menu_local_tabs();
+  $variables['status_messages'] = StatusMessages::renderMessages(NULL);
+
+  if (isset($variables['node'])) {
+    $variables['show_menu'] = _cevi_show_menu($variables['node']);
+  }
+  elseif (!isset($variables['show_menu'])) {
+    $variables['show_menu'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_preprocess_user().
+ */
+function cevi_preprocess_user(&$variables) {
+  $variables['view_mode'] = $variables['elements']['#view_mode'];
+}
+
+/**
+ * Implmements hook_preprocess_paragraph().
+ */
+function cevi_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['elements']['#paragraph'];
+  switch ($paragraph->getType()) {
+    case 'form':
+      $entityTypeManager = Drupal::entityTypeManager();
+      $webformStorage = $entityTypeManager->getStorage('webform');
+      $form_field = $paragraph->get('field_form')->getValue();
+      if (!$form_field) {
+        break;
+      }
+      $form = $webformStorage->load($form_field[0]['target_id']);
+      $variables['webform_title'] = $form->get('title');
+      break;
+
+    case 'person':
+      $entity_type = 'user';
+      $view_mode = 'profile_small';
+      $entityTypeManager = Drupal::entityTypeManager();
+      $userStorage = $entityTypeManager->getStorage($entity_type);
+
+      $field_person = $paragraph->get('field_person')->getValue();
+      $person_id = $field_person[0]['target_id'];
+      $user = $userStorage->load($person_id);
+      $view_builder = Drupal::entityTypeManager()->getViewBuilder($entity_type);
+      $build = $view_builder->view($user, $view_mode);
+      $variables['person'] = render($build);
+      if ($user->get('user_picture') && $user->get('user_picture')->first()) {
+        $person_image_uri = $user->get('user_picture')
+          ->first()->entity->getFileUri();
+        $variables['person_image'] = ImageStyle::load('background_mobile')
+          ->buildUrl($person_image_uri);
+      }
+      break;
+  }
+}
+
+/* =========================================================================
+ * Private functions
+ * =========================================================================
+ *
+ * Start the private functions with a underscore.
+ * Like _cevi_PRIVATE_FUNCTION_XYZ.
+ */
+
+/**
+ * Load a rendered menu by its name.
+ *
+ * @param string $name
+ *   Name of the menu.
+ * @param int $depth
+ *   How deep should the menu be rendered?
+ *
+ * @return mixed
+ *   The rendered menu.
+ */
+function _cevi_load_rendered_menu($name, $depth = 1) {
+  $menu_parameters = new MenuTreeParameters();
+  $menu_parameters->setMaxDepth($depth);
+  $menu_tree_service = Drupal::service('menu.link_tree');
+  $menu_tree = $menu_tree_service->load($name, $menu_parameters);
+  $menu_manipulators = [
+    ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+  ];
+  $menu_tree_ordered = $menu_tree_service->transform($menu_tree, $menu_manipulators);
+  return $menu_tree_service->build($menu_tree_ordered);
+}
+
+/**
+ * Check if we show the menu or not.
+ *
+ * @param \Drupal\node\Entity\Node $node
+ *   The node.
+ *
+ * @return bool
+ *   Show the menu or not.
+ */
+function _cevi_show_menu(Node $node) {
+  if (!$node) {
+    return TRUE;
+  }
+
+  if ($node->type->getValue()[0]['target_id'] === 'landingpage') {
+    return FALSE;
+  }
+
+  return TRUE;
+}

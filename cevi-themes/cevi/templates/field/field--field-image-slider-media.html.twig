@@ -1,0 +1,29 @@
+{# Needs a preprocess in the cevi.theme for preparing the field_image_slider_media #}
+
+{% set sizes = ['mobile', 'tablet', 'desktop'] %}
+{% set length = field_image_slider_media|length %}
+
+{% for size in sizes %}
+  <div class="slide-show -full -{{ size }}" data-slideshow>
+
+    <div class="sliderplaceholder"></div>
+
+    {% for image in field_image_slider_media %}
+      {% set class_addition = 'slider-' ~ (loop.index - 1) %}
+
+      {% if loop.index == 1 %}
+        {% set class_addition = class_addition ~ ' -active ' ~ loop.index %}
+      {% endif %}
+
+      <div class="slider {{ class_addition }}"
+           role="img"
+           aria-label="{{ field_image_slider_media[loop.index - 1].alt }}"
+           title="{{ field_image_slider_media[loop.index - 1].name }}"
+           data-slider
+           data-image-url="{{ field_image_slider_media[loop.index - 1][size] }}">
+      </div>
+    {% endfor %}
+  </div>
+{% endfor %}
+
+

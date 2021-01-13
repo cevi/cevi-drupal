@@ -1,0 +1,22 @@
+cevi_base.menu.social_media:
+  path: '/admin/structure/menu/social-media-menu'
+  defaults:
+    _form: '\Drupal\cevi_base\Form\CeviBaseSocialMediaMenuForm'
+    _title: 'Social Media Menu'
+  requirements:
+    _permission: 'access cevi admin'
+cevi_base.admin:
+  title: 'Cevi'
+  path: '/admin/cevi'
+  defaults:
+    _form: '\Drupal\cevi_base\Form\CeviBaseAdminSettingsForm'
+    _title: 'Cevi Admin'
+  requirements:
+    _permission: 'access cevi admin'
+cevi_base.favicon:
+  path: '/favicon.png'
+  defaults:
+    _controller: '\Drupal\cevi_base\Controller\FaviconController::favicon'
+    _title: 'favicon.png'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,19 @@
+{#
+  /**
+   * @file
+   * Theme implementation for the raw swisstopo latlon.
+   *
+   * Available variables:
+   * - x: The Swiss Grid X value.
+   * - y: The Swiss Grid Y value.
+   *
+   * @ingroup themeable
+   */
+#}
+
+<div>
+  <div class="swissgrid swissgrid-x"> {{ x }}</div>
+  <div class="swissgrid swissgrid-y">{{ y }}</div>
+  <div class="zoom">{{ zoom }}</div>
+  <div class="marker">{{ marker }}</div>
+</div>

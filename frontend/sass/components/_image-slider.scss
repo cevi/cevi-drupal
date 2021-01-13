@@ -1,0 +1,134 @@
+/*
+---
+name: Image Slider
+tag:
+  - components
+  - image
+  - slider
+  - image-slider
+category:
+  - components
+  - components/image-slider
+sourcePath: /components/_image-slider.scss
+---
+
+*/
+@keyframes slide-opacity {
+    0% {
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.slide-show {
+    > .slider {
+        float: left;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        height: 100%;
+        width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        opacity: 0;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+
+        &.-activated {
+            animation-name: slide-opacity;
+        }
+    }
+
+    > .sliderplaceholder {
+        height: 100%;
+        width: 100%;
+        background-color: $color-active;
+        z-index: -1;
+    }
+
+    &.-default {
+        height: 400px;
+        position: relative;
+    }
+
+    &.-full {
+        width: calc(100vw - #{$cevi-line-size * 2});
+        left: 0;
+        height: calc(100vh - #{$base-header-height} - #{$cevi-line-size * 2});
+        top: $base-header-height;
+        background-color: $color-background;
+        position: absolute;
+        z-index: -300;
+
+        &::before {
+            content: '';
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 2;
+            background-color: rgba($color-foreground, 0.1);
+        }
+    }
+
+    &.-mobile,
+    &.-tablet,
+    &.-desktop {
+        @include hide-slider;
+
+        margin: 20px 0;
+    }
+
+    &.-mobile {
+        @include show-slider;
+    }
+
+    @include media('>=medium') {
+        &.-mobile {
+            @include hide-slider;
+        }
+
+        &.-tablet {
+            @include show-slider;
+        }
+    }
+
+    @include media('>=large') {
+        &.-tablet {
+            @include hide-slider;
+        }
+
+        &.-desktop {
+            @include show-slider;
+        }
+    }
+}
+
+// stylelint-disable
+.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .slide-show {
+    &.-full {
+        top: $base-header-height + 79px;
+        height: calc(100vh - #{$base-header-height} -  #{$cevi-line-size * 2} - 79px);
+    }
+}
+
+.toolbar-vertical .slide-show,
+.toolbar-fixed.toolbar-horizontal .slide-show,
+.toolbar-vertical.toolbar-fixed .slide-show {
+    &.-full {
+        top: $base-header-height + 39px;
+        height: calc(100vh - #{$base-header-height} -  #{$cevi-line-size * 2} - 39px);
+    }
+}

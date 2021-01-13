@@ -1,0 +1,31 @@
+/*
+---
+name: Meta
+---
+
+Functions, Mixins and so on...
+
+*/
+
+// @see https://necolas.github.io/normalize.css/
+@import "node_modules/normalize.css/normalize";
+
+// The meta-files
+// -----------------------------------------------------------------------------
+@import "meta/functions";
+@import "meta/base";
+@import "meta/breakpoints";
+@import "meta/colors";
+@import "meta/z";
+
+// @see http://include-media.com/
+//@import "~include-media/dist/_include-media.scss";
+@import "node_modules/include-media/dist/include-media";
+
+// @see http://fontawesome.io/
+@import 'node_modules/font-awesome/scss/font-awesome.scss';
+
+// The meta-files with dependencies to the ones above.
+// -----------------------------------------------------------------------------
+@import "meta/mixins";
+@import "meta/placeholders";

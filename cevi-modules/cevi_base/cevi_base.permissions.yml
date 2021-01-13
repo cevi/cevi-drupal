@@ -1,0 +1,3 @@
+access cevi admin:
+  title: 'Access to the admin pages of the cevi page'
+  restrict access: TRUE

@@ -1,0 +1,23 @@
+/*
+---
+name: Active button
+tag:
+  - components
+  - buttons
+category:
+  - components
+  - components/buttons
+  - components/buttons/active
+sourcePath: /components/buttons/_button-active.scss
+---
+
+The button with another strong visual weight is the active button. It’s the
+button which supports the primary-button.
+
+```html
+<button class="button-actvie">Active button</button>
+```
+*/
+.button-active {
+    @extend %button-active;
+}

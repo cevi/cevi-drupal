@@ -1,0 +1,1 @@
+console.log('Welcome on the cevi admin theme!');

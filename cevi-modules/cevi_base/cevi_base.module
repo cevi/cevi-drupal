@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * @file
+ * This is the cevi_base module, it handles the base things for the cevi page.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\cevi_base\Service\CeviBaseFormService;
+
+/**
+ * Implements hook_entity_view_mode_alter().
+ *
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ */
+function cevi_base_entity_view_mode_alter(&$view_mode, EntityInterface $entity) {
+  if ($entity->getEntityTypeId() == 'user' && $view_mode !== 'profile_small') {
+    $entityTypeManager = Drupal::entityTypeManager();
+    $userStorage = $entityTypeManager->getStorage('user');
+
+    $current_user_account = Drupal::currentUser();
+    $current_user = $userStorage->load($current_user_account->id());
+    if ($entity->hasRole('public_profile')) {
+      $view_mode = 'profile_public';
+    }
+
+    if ($current_user->hasRole('cevileiter')) {
+      $view_mode = 'profile_intern';
+    }
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function cevi_base_page_attachments(array &$variables) {
+  // Add default CSS- & JS-Library.
+  $variables['#attached']['library'][] = 'cevi_base/default';
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function cevi_base_preprocess_node(array &$variables) {
+  /** @var Drupal\node\Entity\Node $node */
+  $node = $variables['elements']['#node'];
+
+  switch ($node->getType()) {
+    case 'landingpage':
+      $claim_config = Drupal::config(CeviBaseFormService::CEVI_ADMIN_SETTINGS_FORM_NAME);
+
+      $variables['#attached']['drupalSettings']['claim'] = [
+        'claim' => [
+          'left' => $claim_config->get(CeviBaseFormService::CLAIM_LEFT),
+          'right' => $claim_config->get(CeviBaseFormService::CLAIM_RIGHT),
+        ],
+        'logo' => [
+          'left' => $claim_config->get(CeviBaseFormService::CLAIM_LOGO_LEFT),
+          'right' => $claim_config->get(CeviBaseFormService::CLAIM_LOGO_RIGHT),
+          'rightsecond' => $claim_config->get(CeviBaseFormService::CLAIM_LOGO_RIGHT_SECOND) ? $claim_config->get(CeviBaseFormService::CLAIM_LOGO_RIGHT_SECOND) : '',
+        ],
+      ];
+      break;
+
+  }
+}
+
+/**
+ * Implements hook_preprocess_region().
+ */
+function cevi_base_preprocess_region(array &$variables) {
+  if ($variables['elements']['#region'] === 'header') {
+    $config = Drupal::config(CeviBaseFormService::CEVI_ADMIN_SETTINGS_FORM_NAME);
+    $ids['header_logo'] = $config->get(CeviBaseFormService::HEADER_LOGO);
+    $ids['header_logo_small'] = $config->get(CeviBaseFormService::HEADER_LOGO_SMALL);
+
+    foreach ($ids as $id => $config_value) {
+      $url = _cevi_base_get_image_url($config_value, $variables['directory'] . '/assets/images/' . $id . '.svg');
+      $variables[$id] = $url;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function cevi_base_preprocess_html(array &$variables) {
+  $config = Drupal::config(CeviBaseFormService::CEVI_ADMIN_SETTINGS_FORM_NAME);
+  $favicon_value = $config->get(CeviBaseFormService::FAVICON);
+  $url = _cevi_base_get_image_url($favicon_value, $variables['directory'] . '/assets/images/favicon.png');
+  $variables['favicon'] = $url;
+}
+
+/**
+ * Implements hook_toolbar_alter
+ */
+function cevi_base_toolbar_alter(array &$variables) {
+  if (!empty($variables['administration_search'])) {
+    unset($variables['administration_search']);
+  }
+}
+
+/**
+ * Get Image URL from a $config_value out of an admin-config-form.
+ *
+ * @param $config_value
+ * @param $alternate
+ * @return false|string
+ * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
+ * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
+ */
+function _cevi_base_get_image_url($config_value, $alternate) {
+  $fileStorage = Drupal::entityTypeManager()->getStorage('file');
+
+  if (isset($config_value[0])) {
+    $file = $fileStorage->load($config_value[0]);
+    if ($file) {
+      $uri = $file->get('uri')->getValue()[0]['value'];
+      if (file_exists($uri)) {
+        return file_create_url($uri);
+      }
+    }
+  }
+  return $alternate;
+}

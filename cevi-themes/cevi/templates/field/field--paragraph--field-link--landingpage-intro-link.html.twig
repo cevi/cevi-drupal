@@ -1,0 +1,5 @@
+<div class="link">
+  {% for item in items %}
+    <a href="{{ item.content['#url'].tostring }}" class="button-active">{{ item.content['#title'] }}</a>
+  {% endfor %}
+</div>

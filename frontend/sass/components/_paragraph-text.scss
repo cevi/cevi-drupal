@@ -1,0 +1,61 @@
+/*
+---
+name: Text Paragraph
+tag:
+  - components
+  - paragraph
+  - text
+category:
+  - components
+  - components/text
+  - components/paragraph-text
+sourcePath: /components/_paragraph-text.scss
+---
+
+<div class="paragraph paragraph-text">
+    <h2>This is a title h2</h2>
+    <p>Lorem ipsum dolores sunt. Sit amet.</p>
+    <p>Lorem ipsum dolores <a href="#">sunt</a>. Sit amet.</p>
+    <ul>
+        <li>List element A</li>
+        <li>List element B</li>
+        <li>List element C</li>
+    </ul>
+</div>
+
+<div class="paragraph paragraph-text">
+    <h2>This is a title h3</h2>
+    <p>Lorem ipsum dolores sunt. Sit amet.</p>
+    <p>Lorem ipsum dolores <a href="#">sunt</a>. Sit amet.</p>
+    <ul>
+        <li>List element A</li>
+        <li>List element B</li>
+        <li>List element C</li>
+    </ul>
+</div>
+
+*/
+.paragraph-text {
+    > ul > li {
+        margin: 5px 0;
+    }
+
+    > h2 {
+        @extend .h4;
+
+        margin: $base-vertical-margin * 1.5 0 $base-vertical-margin * 0.75;
+    }
+
+    > h3 {
+        @extend .h6;
+
+        margin: $base-vertical-margin 0 $base-vertical-margin * 0.5;
+    }
+
+    > h2,
+    > h3 {
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * This is the cevi_logo module for providing a logo-generator.
+ *
+ * The module provides a logo-generator page where
+ * everybody can create an own cevi-logo & the cevi-logo-claim.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function cevi_logo_theme() {
+  return [
+    'logo-generator' => [
+      'variables' => [],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_menu__type().
+ */
+function cevi_logo_preprocess_menu__main(&$variables) {
+  if (_cevi_logo_is_generator_route()) {
+    $variables['hide_menu'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function cevi_logo_preprocess_page(&$variables) {
+  if (_cevi_logo_is_generator_route()) {
+    $variables['show_menu'] = FALSE;
+
+    if (Drupal::request()->query->get('iframe')) {
+      $variables['hide_header'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Check if we are on the logo-generator route.
+ *
+ * @return bool
+ *   Are we on the logo-generator-route?
+ */
+function _cevi_logo_is_generator_route() {
+  $routeName = Drupal::routeMatch()->getRouteName();
+  return $routeName === 'cevi_logo.generator';
+}

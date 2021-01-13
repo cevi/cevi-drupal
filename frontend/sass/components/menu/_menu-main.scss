@@ -1,0 +1,171 @@
+/*
+---
+name: Main Menu
+tag:
+  - components
+  - menu
+category:
+  - components
+  - components/menu
+  - components/menu/main
+sourcePath: /components/menu/_menu-main.scss
+---
+
+The plain button is the most basic form of a button and actually doesn’t look
+like a button at all. You’ll most likely use it for `button` elements that
+are *not* supposed to look like a button.
+
+```html
+<div class="menu-main">
+</div>
+```
+*/
+.menu-main {
+    position: absolute;
+    left: -100vw;
+    top: $base-header-height;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba($color-background-hover, 0);
+    padding-top: 0;
+    z-index: -1;
+    transition-duration: $base-transition-speed;
+    transition-property: background-color, left;
+
+    // Scrollable content
+    max-height: calc(100vh - #{$base-header-height});
+    overflow: auto;
+
+    @include media('>=large') {
+        top: $base-header-height;
+        width: calc((100vw + 20px) / 3);
+        left: calc((100vw + 20px) / -3);
+    }
+
+    .navigation { // stylelint-disable-line rscss/no-descendant-combinator
+        margin: $base-horizontal-margin 0 0;
+        padding: 0;
+
+        > .item {
+            @include headline;
+            @include menu-underline;
+
+            list-style: none;
+            cursor: pointer;
+            font-size: 1.25rem;
+            line-height: vertical-base(1.25);
+            padding: $base-horizontal-margin / 3 * 2 $base-vertical-margin $base-horizontal-margin / 2 $base-vertical-margin;
+            position: relative;
+
+            @include media('>=large') {
+                padding-left: $base-vertical-margin * 2;
+            }
+
+            a {
+                text-decoration: none;
+                display: block;
+            }
+        }
+
+        &.-sub {
+            // Closed menu.
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1000ms, opacity $base-transition-speed, margin-top 500ms;
+            padding-bottom: 0;
+            margin-top: 0;
+            opacity: 0;
+
+            > .item {
+                // No line.
+                &::after {
+                    display: none;
+                }
+
+                padding-left: 0;
+                padding-top: $base-horizontal-margin / 3;
+                padding-bottom: $base-horizontal-margin / 3;
+
+                a {
+                    color: $color-secondary;
+                }
+
+                &:last-child {
+                    @include menu-underline;
+
+                    padding-bottom: 0;
+
+                    &::after {
+                        display: block;
+                        top: 30px;
+                        width: 100%;
+                        left: 0;
+                        transition: top $base-transition-speed linear $base-transition-speed, opacity $base-transition-speed linear $base-transition-speed;
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+
+        > .item { // stylelint-disable-line
+            .-opensub + .-sub { // stylelint-disable-line
+                // open menu.
+                max-height: 800px;
+                padding-bottom: 10px;
+                margin-top: 8px;
+                opacity: 1;
+
+                > .item:last-child::after {
+                    top: 28px;
+                    opacity: 1;
+
+                    @include media('>=large') {
+                        top: 32px;
+                    }
+                }
+            }
+
+            a { // stylelint-disable-line
+                transition-duration: $base-transition-speed;
+                transition-property: color;
+
+                // stylelint-disable
+                &.is-active,
+                &:hover {
+                    color: $color-primary;
+                }
+                // stylelint-enable
+            }
+        }
+    }
+}
+
+.menu-opener.-open + .menu-main,
+.menu-main.-open {
+    background-color: $color-background-hover-transparent-mobile;
+    left: 0;
+
+    @include media('>=large') {
+        background-color: $color-background-hover-transparent;
+    }
+}
+
+.menu-main.-opendesktop {
+    @include media('>=large') {
+        background-color: $color-background-hover-transparent;
+        left: 0;
+    }
+}
+
+// stylelint-disable
+// Admin-Menu
+.toolbar-vertical .menu-main,
+.toolbar-horizontal.toolbar-fixed .menu-main {
+    max-height: calc(100vh - #{$base-header-height} - 19px);
+}
+
+.toolbar-tray-open.toolbar-horizontal.toolbar-fixed .menu-main {
+    @include media('>=large') {
+        max-height: calc(100vh - #{$base-header-height} - 59px);
+    }
+}

@@ -1,0 +1,7 @@
+name: swisstopo
+type: module
+description: Integration for map.geo.admin.ch.
+core: 8.x
+package: swisstopo
+libraries:
+- swisstopo/default

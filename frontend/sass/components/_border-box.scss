@@ -1,0 +1,25 @@
+/*
+---
+name: Image Border
+tag:
+  - components
+  - border
+  - border-box
+category:
+  - components
+  - components/border
+sourcePath: /components/_border-box.scss
+---
+
+*/
+.border-box {
+    @include border-box;
+
+    &.-inline {
+        padding: $cevi-line-size;
+    }
+
+    img { // stylelint-disable-line rscss/no-descendant-combinator
+        vertical-align: top;
+    }
+}

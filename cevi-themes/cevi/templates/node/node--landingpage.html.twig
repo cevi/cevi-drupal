@@ -1,0 +1,24 @@
+<article{{ attributes }}>
+
+  <div class="landing-page">
+    <h1 class="hidden">Cevi Wädenswil-Au</h1>
+
+    <div class="partwrapper">
+      {{ content.field_intro_paragraphs }}
+    </div>
+
+    <div class="cevi-claim">
+      <div class="claimwrapper" data-claim></div>
+      <div class="claimhelper">
+        <svg id="svg-test"></svg>
+      </div>
+    </div>
+
+    <div>
+      {{ content|without(
+        'field_intro_paragraphs'
+      ) }}
+    </div>
+  </div>
+
+</article>

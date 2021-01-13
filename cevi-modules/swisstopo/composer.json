@@ -1,0 +1,26 @@
+{
+    "name": "btemperli/swisstopo",
+    "description": "Integration for the swisstopo map (map.geo.admin.ch).",
+    "type": "drupal-module",
+    "homepage": "https://www.temperli.io",
+    "keywords": ["drupal", "map", "swisstopo"],
+    "authors": [
+        {
+            "name": "Beat Temperli",
+            "homepage": "https://www.drupal.org/u/btemperli",
+            "role": "Maintainer"
+        }
+    ],
+    "support": {
+        "issues": "tbd",
+        "source": "tbd"
+    },
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    }
+}

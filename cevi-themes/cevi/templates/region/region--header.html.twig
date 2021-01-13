@@ -1,0 +1,17 @@
+<header class="header-bar">
+  {% if content %}
+    <div{{ attributes }}>
+      {{ content }}
+    </div>
+  {% endif %}
+  <div class="logowrapper">
+    <a href="{{ url('<front>') }}" class="logo">
+      {% if header_logo %}
+        <img class="image" src="{{ header_logo }}">
+      {% endif %}
+      {% if header_logo_small %}
+        <img class="image -short" src="{{ header_logo_small }}">
+      {% endif %}
+    </a>
+  </div>
+</header>

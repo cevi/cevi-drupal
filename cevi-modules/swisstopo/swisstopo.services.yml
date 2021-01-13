@@ -1,0 +1,3 @@
+services:
+  swisstopo.service:
+      class: Drupal\swisstopo\SwisstopoService

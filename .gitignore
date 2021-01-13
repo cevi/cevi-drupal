@@ -1,0 +1,20 @@
+# Deployment
+deploy
+grish.json
+db_dumps/*
+log/*
+phpunit.xml.dist
+
+# Credentials
+settings/settings.current.php
+
+# Frontend
+node_modules
+cevi-themes/cevi/assets-old
+cevi-themes/cevi/assets
+
+# PhpStorm
+.idea
+
+# Mac OS
+.DS_Store

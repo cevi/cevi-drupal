@@ -1,0 +1,18 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+  ]
+%}
+
+<div class="landing-page-part">
+  <div class="content">
+    <div class="theme">
+      {{ content.field_theme }}
+    </div>
+    <div class="title">
+      {{ content.field_title }}
+    </div>
+    {{ content.field_link }}
+  </div>
+</div>

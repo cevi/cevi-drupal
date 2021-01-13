@@ -1,0 +1,92 @@
+/*
+---
+name: Cevi Claim
+tag:
+  - components
+  - cevi
+  - claim
+category:
+  - components
+  - components/cevi-claim
+sourcePath: /components/_cevi-claim.scss
+---
+
+```html
+<div class="cevi-claim">
+    <div class="claimwrapper" data-claim></div>
+    <div class="claimhelper">
+        <span class="claimoutput" data-claim-logo-left></span>
+        <span class="claimoutput" data-claim-logo-right></span>
+        <span class="claimoutput" data-claim-claim-left></span>
+        <span class="claimoutput" data-claim-claim-right></span>
+    </div>
+</div>
+```
+*/
+@keyframes hide {
+    0% {
+        display: block;
+        opacity: 1;
+    }
+
+    60% {
+        opacity: 1;
+    }
+
+    99% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.cevi-claim {
+    > .claimwrapper {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: none;
+        animation-duration: 12s;
+        animation-timing-function: linear;
+        opacity: 0;
+        pointer-events: none;
+        width: calc(100vw - 40px);
+
+        @include media('>=large') {
+            display: block;
+        }
+
+        &.-start {
+            animation-name: hide;
+        }
+
+        > svg {
+            max-width: 98%;
+            margin-left: 50%;
+            transform: translateX(-50%);
+
+            @include media('>medium') {
+                max-width: 90%;
+            }
+
+            @include media('>=large') {
+                max-width: 85%;
+            }
+
+            @include media('>=huge') {
+                max-width: 80%;
+            }
+        }
+    }
+
+    > .claimhelper {
+        font-size: 110px;
+        font-family: $base-headline-family;
+        font-weight: 700;
+        visibility: hidden;
+        white-space: nowrap;
+    }
+}

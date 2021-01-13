@@ -1,0 +1,23 @@
+/*
+---
+name: Primary button
+tag:
+  - components
+  - buttons
+category:
+  - components
+  - components/buttons
+  - components/buttons/primary
+sourcePath: /components/buttons/_button-primary.scss
+---
+
+The button with the strongest visual weight is the primary button. It’s the
+button that’s supposed to get the most attention.
+
+```html
+<button class="button-primary">Primary button</button>
+```
+*/
+.button-primary {
+    @extend %button-primary;
+}

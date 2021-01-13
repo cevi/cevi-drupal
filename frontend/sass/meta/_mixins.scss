@@ -1,0 +1,121 @@
+// -----------------------------------------------------------------------------
+// Define your global mixins in here!
+// -----------------------------------------------------------------------------
+@mixin border-box() {
+    position: relative;
+
+    &::before,
+    &::after {
+        border: $cevi-line-size / 2 solid $color-active;
+        transition: border $base-transition-speed linear;
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    &::before {
+        border-color: $color-background;
+        height: calc(100% - #{$cevi-line-size});
+        width: calc(100% - #{$cevi-line-size});
+        top: $cevi-line-size / 2;
+        left: $cevi-line-size / 2;
+    }
+
+    &:hover::after {
+        border-color: $color-primary;
+    }
+}
+
+@mixin group($pseudo: "after") {
+    &#{if($pseudo, "::#{$pseudo}", "")} {
+        clear: both;
+        content: "";
+        display: table;
+    }
+}
+
+@mixin headline() {
+    font-family: $base-headline-family;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+@mixin paragraph() {
+    font-family: $base-font-family;
+    text-transform: none;
+    font-weight: 400;
+    letter-spacing: 0;
+}
+
+@mixin hide-slider() {
+    display: none;
+    visibility: hidden;
+}
+
+@mixin menu-underline() {
+    &::after {
+        content: '';
+        width: calc(100% - (#{$base-vertical-margin} * 2));
+        height: 1px;
+        background-color: $color-black;
+        position: absolute;
+        left: $base-vertical-margin;
+        top: 45px;
+    }
+
+    @include media('>=large') {
+        &::after {
+            width: calc(100% - (#{$base-vertical-margin} * 3));
+            left: $base-vertical-margin * 2;
+            top: 50px;
+        }
+    }
+}
+
+@mixin show-slider() {
+    display: block;
+    visibility: visible;
+}
+
+// -----------------------------------------------------------------------------
+// Mixins which depends on other mixins.
+// -----------------------------------------------------------------------------
+@mixin button($color) {
+    @include headline;
+
+    width: auto;
+    cursor: pointer;
+    background-color: $color;
+    color: $color-background;
+    padding: $base-horizontal-margin / 4 $base-vertical-margin;
+    border: $cevi-line-size / 4 solid $color;
+    font-size: $base-font-size-mobile;
+    text-decoration: none;
+    line-height: inherit;
+    border-radius: 0;
+    transition: color $base-transition-speed linear, background-color $base-transition-speed linear;
+
+    @include media('>=medium') {
+        padding: $base-horizontal-margin / 2 $base-vertical-margin;
+        border: $cevi-line-size / 2 solid $color;
+    }
+
+    @include media('>=large') {
+        font-size: $base-font-size;
+    }
+
+    &:active,
+    &:hover,
+    &:focus {
+        background-color: $color-background;
+        color: $color;
+        outline: none;
+        text-decoration: none;
+    }
+}

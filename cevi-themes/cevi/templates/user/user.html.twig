@@ -1,0 +1,20 @@
+{% if content %}
+  {% if content.user_picture %}
+    <div class="text-align-center">
+      {{ content.user_picture }}
+    </div>
+  {% endif %}
+  {% if view_mode == 'profile_small' %}
+    <p class="margin-bottom-05">
+      <b>
+        {{ content.field_firstname }} {{ content.field_lastname }} {{ content.field_vulgo }}
+      </b>
+    </p>
+  {% else %}
+    <h1 class="h4 margin-top">
+      {{ content.field_firstname }} {{ content.field_lastname }} {{ content.field_vulgo }}
+    </h1>
+  {% endif %}
+
+  {{ content|without('user_picture', 'field_firstname', 'field_lastname', 'field_vulgo') }}
+{% endif %}

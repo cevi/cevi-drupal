@@ -1,0 +1,19 @@
+{{ content|without('field_person', 'field_function', 'field_turn_color_box') }}
+
+{% if content.field_turn_color_box['#items'][0].value != 1 %}
+  <div class="color-box -changecolor -switchcolor -switchsize -rightarrow">
+    <div class="left">
+      <h2 class="h4 margin-bottom-05">{{ content.field_function }}</h2>
+      {{ person }}
+    </div>
+    <div class="right -image" style="background-image: url({{ person_image }}"></div>
+  </div>
+{% else %}
+  <div class="color-box -changecolor -switchcolor -leftarrow">
+    <div class="left -image" style="background-image: url({{ person_image }}"></div>
+    <div class="right">
+      <h2 class="h4 margin-bottom-05">{{ content.field_function }}</h2>
+      {{ person }}
+    </div>
+  </div>
+{% endif %}

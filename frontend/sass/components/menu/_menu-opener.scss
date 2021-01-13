@@ -1,0 +1,59 @@
+/*
+---
+name: Menu opener
+tag:
+  - components
+  - menu
+category:
+  - components
+  - components/menu
+  - components/menu/opener
+sourcePath: /components/menu/_menu-opener.scss
+---
+
+This is the menu-opener. It has 2 states, open & close.
+
+```html
+<div class="menu-opener">
+    <a href="#" class="opener">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+<div class="menu-opener">
+    <a href="#" class="opener -open">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+```
+*/
+.menu-opener {
+    height: 60px;
+    width: 60px;
+    padding: 10px 10px 10px 25px;
+
+    > .opener {
+        height: 40px;
+        width: 40px;
+        background-color: $color-primary-contrast;
+        color: $color-primary;
+        margin: 0;
+        padding: 9px 11px;
+
+        > .fa {
+            font-size: 22px;
+        }
+
+        &.-open {
+            background-color: $color-active;
+            color: $color-active-contrast;
+        }
+
+        &.-showonmobile {
+            display: block;
+
+            @include media('>=large') {
+                visibility: hidden;
+            }
+        }
+    }
+}

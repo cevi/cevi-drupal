@@ -1,0 +1,4 @@
+features:
+  favicon: true
+favicon:
+  use_default: false

@@ -1,0 +1,44 @@
+// stylelint-disable
+.drupal-tabs {
+    position: fixed;
+    z-index: 200;
+    border: 3px solid $color-primary;
+    padding: $base-horizontal-margin $base-vertical-margin;
+    bottom: 20px;
+    left: 20px;
+    max-width: 95%;
+    background-color: rgba($color-white, 0.75);
+
+    @include media('<large') {
+        width: 90%;
+    }
+
+    &.-message {
+        margin-bottom: 80px;
+        border-color: $color-active;
+        color: $color-active;
+    }
+
+    > ul {
+        margin: 0;
+        padding: 0;
+
+        > li {
+            float: left;
+            list-style: none;
+            margin-left: $base-vertical-margin;
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            > a {
+                text-decoration: none;
+
+                &.is-active {
+                    color: $color-active;
+                }
+            }
+        }
+    }
+}

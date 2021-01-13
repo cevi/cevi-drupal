@@ -1,0 +1,24 @@
+<div class="border-box -inline">
+
+  <div class="slide-show -default" data-slideshow>
+    <div class="sliderplaceholder"></div>
+
+    {% for item in items %}
+      {% set class_addition = 'slider-' ~ (loop.index - 1) %}
+
+      {% if loop.index == 1 %}
+        {% set class_addition = class_addition ~ ' -active ' ~ loop.index %}
+      {% endif %}
+
+      <div class="slider {{ class_addition }}"
+           data-slider
+           role="img"
+           title="{{ item.content['#item'].alt }}"
+           aria-label="{{ item.content['#item'].alt }}"
+           data-image-url="{{ file_url(item.content['#item'].entity.uri.value) }}">
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
