@@ -19,15 +19,19 @@ dienen.
 
 Lokaler Server so einrichten, dass die Webseite im Verzeichnis `./drupal/web` aufgerufen werden kann
 
+`node`, `npm` und `composer` global im System installieren.
+
 # <a name="installation">Installation</a>
+
+1) Frontend einmalig generieren: `$ npm install; npm run build`
 
 1) `$ cd drupal`
 
-2) `$ composer install`
+1) `$ composer install`
 
-3) Drupal installieren: Seite besuchen und Installation starten.
+1) Drupal installieren: Seite besuchen und Installation starten.
 
-4) `$ vendor/bin/drush cim`
+1) `$ vendor/bin/drush cim`
 Importiert die Konfiguration für die ganze Webseite.
 
 

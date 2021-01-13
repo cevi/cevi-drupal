@@ -121,7 +121,7 @@ class ScriptHandler {
           $io->writeError('<error>The File "settings.current.php" is missing. Check your README, create the file, and try again.</error>.');
           exit(1);
         }
-
+        $fs->remove($drupalRoot . '/sites/default/settings.php');
         $fs->copy($drupalRoot . '/../../settings/settings.php', $drupalRoot . '/sites/default/settings.php');
         $fs->copy($drupalRoot . '/../../settings/settings.current.php', $drupalRoot . '/sites/default/settings.current.php');
     }
