@@ -6,9 +6,10 @@ Das ist ein Projekt, damit du mit Hilfe vom CMS "Drupal" deine eigene Cevi-Webse
 
 Folgende Voraussetzungen müssen gegeben sein:
 
-- Composer muss installiert sein
-- Irgendein Server sollte vorhanden sein
+- `composer` sollte global installiert sein
+- Irgendein (lokaler) Server sollte vorhanden sein
 - Eine Datenbank (mysql) mit den nötigen Zugängen muss vorhanden sein.
+- `node`, `npm` und `composer` global im System installieren.
 
 ## Vorbereitung
 
@@ -19,9 +20,7 @@ dienen.
 
 Lokaler Server so einrichten, dass die Webseite im Verzeichnis `./drupal/web` aufgerufen werden kann
 
-`node`, `npm` und `composer` global im System installieren.
-
-# <a name="installation">Installation</a>
+# <a name="installation">Einfache Installation</a>
 
 1) Frontend einmalig generieren: `$ npm install; npm run build`
 
@@ -30,7 +29,11 @@ Lokaler Server so einrichten, dass die Webseite im Verzeichnis `./drupal/web` au
 1) Run `$ ./cevi-install.sh`
 1) Besuche deine Seite und Logge dich ein unter DOMAIN/user/login mit dem Zugang `admin`/`cevi`. Wechsle dein Passwort.
 
-OR
+# Detaillierte Installation
+
+1) Frontend einmalig generieren: `$ npm install; npm run build`
+
+1) `$ cd drupal`
 
 1) `$ composer install`
 
