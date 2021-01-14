@@ -12,3 +12,5 @@ composer install
 ./vendor/bin/drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'
 
 ./vendor/bin/drush cim -y
+
+./vendor/bin/drush user:password admin cevi

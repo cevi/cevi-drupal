@@ -28,6 +28,7 @@ Lokaler Server so einrichten, dass die Webseite im Verzeichnis `./drupal/web` au
 1) `$ cd drupal`
 
 1) Run `$ ./cevi-install.sh`
+1) Besuche deine Seite und Logge dich ein unter DOMAIN/user/login mit dem Zugang `admin`/`cevi`. Wechsle dein Passwort.
 
 OR
 
@@ -41,14 +42,26 @@ Installationsprogramm kann unter DOMAIN//core/install.php aufgerufen werden. Die
    1) Eigene Informationen eingeben (Name der Webseite, Emailadresse, Admin-User, ...)
    1) Oder via Konsole: `$ ./vendor/bin/drush si --locale=de` 
 
-1) Eigene Config-UUID überschreiben:
+1) Ein paar Anpassungen an der frischen Drupal-Seite anpassen:
 
-   1) `$ vendor/bin/drush config-set system.site uuid eb76eb7c-70c3-4296-960b-673b5f7702af -y`
-   1) `$ vendor/bin/drush config-set language.entity.de uuid 7e2040a3-be26-44ad-ba1e-c5902dded730 -y`
+   1) `$ ./vendor/bin/drush config-set system.site uuid eb76eb7c-70c3-4296-960b-673b5f7702af -y`
+   1) `$ ./vendor/bin/drush config-set language.entity.de uuid 7e2040a3-be26-44ad-ba1e-c5902dded730 -y`
+   1) `$ ./vendor/bin/drush config-set shortcut.set.default uuid 6e0504ef-46e5-42bf-a1a2-cd097c1689ce -y`
+   1) `$ ./vendor/bin/drush cdel field.field.node.article.body`
+   1) `$ ./vendor/bin/drush cdel field.field.node.page.body`
+   1) `$ ./vendor/bin/drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'`
 
 1) `$ vendor/bin/drush cim -y`
 Importiert die Konfiguration für die ganze Webseite.
+   
+# Erste Schritte
 
+1) Admin-Passwort wechseln
+1) Unter Inhalt > Inhalt hinzufügen > [Landingpage](http://www.cevi-drupal.ch/node/add/landingpage) eine Startseite hinzufügen.
+1) Weitere Seiten hinzufügen.
+1) Unter [Cevi](http://www.cevi-drupal.ch/admin/cevi) kannst du dein Logo hinzufügen und dein Slogan für die Startseite. Das Logo kannst du im [Cevi-Logo-Generator](https://logo.cevi.ch) erstellen.
+1) Unter Struktur > Menüs > [Social-Media](http://www.cevi-drupal.ch/admin/structure/menu/social-media-menu) kannst du deine Sozialen Medien verlinken.
+1) Am gleichen Ort beim Hauptmenü kannst du das Hauptmenü bearbeiten.
 
 ## Frontend bearbeiten
 

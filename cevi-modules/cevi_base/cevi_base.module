@@ -76,7 +76,7 @@ function cevi_base_preprocess_region(array &$variables) {
     $ids['header_logo_small'] = $config->get(CeviBaseFormService::HEADER_LOGO_SMALL);
 
     foreach ($ids as $id => $config_value) {
-      $url = _cevi_base_get_image_url($config_value, $variables['directory'] . '/assets/images/' . $id . '.svg');
+      $url = _cevi_base_get_image_url($config_value, base_path() . $variables['directory'] . '/assets/images/' . $id . '.svg');
       $variables[$id] = $url;
     }
   }
@@ -88,7 +88,7 @@ function cevi_base_preprocess_region(array &$variables) {
 function cevi_base_preprocess_html(array &$variables) {
   $config = Drupal::config(CeviBaseFormService::CEVI_ADMIN_SETTINGS_FORM_NAME);
   $favicon_value = $config->get(CeviBaseFormService::FAVICON);
-  $url = _cevi_base_get_image_url($favicon_value, $variables['directory'] . '/assets/images/favicon.png');
+  $url = _cevi_base_get_image_url($favicon_value, base_path() . $variables['directory'] . '/assets/images/favicon.png');
   $variables['favicon'] = $url;
 }
 
