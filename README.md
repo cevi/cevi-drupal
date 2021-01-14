@@ -27,18 +27,23 @@ Lokaler Server so einrichten, dass die Webseite im Verzeichnis `./drupal/web` au
 
 1) `$ cd drupal`
 
+1) Run `$ ./cevi-install.sh`
+
+OR
+
 1) `$ composer install`
 
 1) Drupal installieren: Seite besuchen und Installation starten.
 Installationsprogramm kann unter DOMAIN//core/install.php aufgerufen werden. Diese Seite wird automatisch geladen.
    
-    1) Sprache: Deutsch
-    1) Installationsprofil: Standard
-    1) Eigene Informationen eingeben (Name der Webseite, Emailadresse, Admin-User, ...)
+   1) Sprache: Deutsch
+   1) Installationsprofil: Standard
+   1) Eigene Informationen eingeben (Name der Webseite, Emailadresse, Admin-User, ...)
+   1) Oder via Konsole: `$ ./vendor/bin/drush si --locale=de` 
 
 1) Eigene Config-UUID überschreiben:
 
-   1) `$ vendor/bin/drush config-set system.site uuid 7e2040a3-be26-44ad-ba1e-c5902dded730 -y`
+   1) `$ vendor/bin/drush config-set system.site uuid eb76eb7c-70c3-4296-960b-673b5f7702af -y`
    1) `$ vendor/bin/drush config-set language.entity.de uuid 7e2040a3-be26-44ad-ba1e-c5902dded730 -y`
 
 1) `$ vendor/bin/drush cim -y`
