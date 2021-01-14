@@ -61,7 +61,11 @@ Importiert die Konfiguration für die ganze Webseite.
 1) Weitere Seiten hinzufügen.
 1) Unter [Cevi](http://www.cevi-drupal.ch/admin/cevi) kannst du dein Logo hinzufügen und dein Slogan für die Startseite. Das Logo kannst du im [Cevi-Logo-Generator](https://logo.cevi.ch) erstellen.
 1) Unter Struktur > Menüs > [Social-Media](http://www.cevi-drupal.ch/admin/structure/menu/social-media-menu) kannst du deine Sozialen Medien verlinken.
-1) Am gleichen Ort beim Hauptmenü kannst du das Hauptmenü bearbeiten.
+1) Am gleichen Ort bei der Hauptnavigation kannst du das Hauptmenü bearbeiten.
+1) Ebenfalls bei den Menüs kannst du das Fussmenü erstellen und da zumindest die beiden folgenden Links hinzufügen
+   1) Login der auf `/user/login` verlinkt
+   1) Logout der auf `/user/logout` verlinkt. Drupal wird automatisch nur den einen der beiden anzeigen.
+
 
 ## Frontend bearbeiten
 
