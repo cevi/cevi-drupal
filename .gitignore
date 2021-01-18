@@ -6,7 +6,7 @@ log/*
 phpunit.xml.dist
 
 # Credentials
-settings/settings.current.php
+settings/settings.*.php
 
 # Frontend
 node_modules

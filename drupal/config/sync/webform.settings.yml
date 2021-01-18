@@ -200,8 +200,6 @@ requirements:
   clientside_validation: true
   spam: true
 langcode: de
-third_party_settings:
-  captcha:
-    replace_administration_mode: true
+third_party_settings: {  }
 _core:
   default_config_hash: pCVedUicnZwcaPYXHSEnGjAGPbKqhTUmtHKTi4nfI-M

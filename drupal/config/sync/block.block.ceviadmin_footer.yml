@@ -13,7 +13,7 @@ _core:
 id: ceviadmin_footer
 theme: ceviadmin
 region: header
-weight: -3
+weight: 1
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

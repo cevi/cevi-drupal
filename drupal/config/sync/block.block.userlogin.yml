@@ -9,7 +9,7 @@ dependencies:
 id: userlogin
 theme: ceviadmin
 region: content
-weight: 0
+weight: -4
 provider: null
 plugin: user_login_block
 settings:

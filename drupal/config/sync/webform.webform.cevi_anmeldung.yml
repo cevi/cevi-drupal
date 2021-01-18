@@ -1,7 +1,13 @@
 uuid: 82f9e1ec-d3a3-4561-bc5f-b81b64585ab0
 langcode: de
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
 open: null
 close: null
 weight: 0
@@ -12,7 +18,7 @@ id: cevi_anmeldung
 title: Cevi-Anmeldung
 description: ''
 category: ''
-elements: "vorname_name_eltern:\n  '#type': textfield\n  '#title': 'Vorname / Name Eltern'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\nphone:\n  '#type': tel\n  '#title': 'Telefonnummer / Handy'\n  '#required': true\nstrasse:\n  '#type': textfield\n  '#title': Strasse\n  '#required': true\nplz_ort:\n  '#type': textfield\n  '#title': 'PLZ / Ort'\n  '#required': true\nhorizontal_rule:\n  '#type': webform_horizontal_rule\nname_kind:\n  '#type': textfield\n  '#title': 'Name Kind'\n  '#required': true\nklasse:\n  '#type': textfield\n  '#title': Klasse\ngeburtsdatum_kind:\n  '#type': date\n  '#title': Geburtsdatum\n  '#required': true\n  '#date_date_format': d.m.Y\n  '#date_date_max': today\ngeschlecht_kind:\n  '#type': select\n  '#title': Geschlecht\n  '#options':\n    Weiblich: Weiblich\n    Männlich: Männlich\n  '#required': true\nhorizontal_rule_01:\n  '#type': webform_horizontal_rule\nbemerkungen:\n  '#type': textarea\n  '#title': Bemerkungen\nactions:\n  '#type': webform_actions\n  '#title': 'Anmeldung abschicken'\n"
+elements: "vorname_name_eltern:\n  '#type': textfield\n  '#title': 'Vorname / Name Eltern'\n  '#required': true\nemail:\n  '#type': email\n  '#title': Email\n  '#required': true\nphone:\n  '#type': tel\n  '#title': 'Telefonnummer / Handy'\n  '#required': true\nstrasse:\n  '#type': textfield\n  '#title': Strasse\n  '#required': true\nplz_ort:\n  '#type': textfield\n  '#title': 'PLZ / Ort'\n  '#required': true\nhorizontal_rule:\n  '#type': webform_horizontal_rule\nname_kind:\n  '#type': textfield\n  '#title': 'Name Kind'\n  '#required': true\nklasse:\n  '#type': textfield\n  '#title': Klasse\ngeburtsdatum_kind:\n  '#type': date\n  '#title': Geburtsdatum\n  '#required': true\n  '#date_date_format': d.m.Y\n  '#date_date_max': today\ngeschlecht_kind:\n  '#type': select\n  '#title': Geschlecht\n  '#options':\n    Weiblich: Weiblich\n    Männlich: Männlich\n  '#required': true\nhorizontal_rule_01:\n  '#type': webform_horizontal_rule\nbemerkungen:\n  '#type': textarea\n  '#title': Bemerkungen\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Anmeldung abschicken'"
 css: ''
 javascript: ''
 settings:

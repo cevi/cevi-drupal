@@ -89,6 +89,10 @@ $padding-vertical: 10px;
         }
     }
 
+    .captcha { // stylelint-disable-line rscss/no-descendant-combinator
+        margin-bottom: $base-horizontal-margin;
+    }
+
     input[type="radio"] { // stylelint-disable-line rscss/no-descendant-combinator
         width: 40px;
         float: left;

@@ -1,6 +1,6 @@
 uuid: 9f2194a4-2b02-4df3-b0fb-60eecc55da93
 langcode: de
-status: false
+status: true
 dependencies:
   theme:
     - ceviadmin
@@ -8,8 +8,8 @@ _core:
   default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
 id: ceviadmin_local_actions
 theme: ceviadmin
-region: content
-weight: -3
+region: header
+weight: -4
 provider: null
 plugin: local_actions_block
 settings:

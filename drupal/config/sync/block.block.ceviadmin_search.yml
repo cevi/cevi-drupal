@@ -11,7 +11,7 @@ _core:
 id: ceviadmin_search
 theme: ceviadmin
 region: header
-weight: -6
+weight: -2
 provider: null
 plugin: search_form_block
 settings:

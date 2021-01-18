@@ -1,7 +1,13 @@
 uuid: a1e10a2c-2d01-421a-8b0e-4ecb2550f5b4
 langcode: de
 status: open
-dependencies: {  }
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
 open: null
 close: null
 weight: 0
@@ -12,7 +18,7 @@ id: contact_form
 title: Kontaktformular
 description: ''
 category: ''
-elements: "name:\n  '#type': textfield\n  '#title': Name\n  '#required': true\nemail:\n  '#type': email\n  '#title': E-Mail\n  '#autocomplete': 'off'\n  '#required': true\n  '#required_error': 'Auf deine Anfrage möchten wir dir eine Antwort zukommen lassen können. Bitte gib eine E-Mailadresse an.'\nmessage:\n  '#type': textarea\n  '#title': Nachricht\n  '#required': true\n  '#required_error': 'Eine Anfrage ohne Inhalt? Nee. Bitte ausfüllen!'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Abschicken\n"
+elements: "name:\n  '#type': textfield\n  '#title': Name\n  '#required': true\nemail:\n  '#type': email\n  '#title': E-Mail\n  '#autocomplete': 'off'\n  '#required': true\n  '#required_error': 'Auf deine Anfrage möchten wir dir eine Antwort zukommen lassen können. Bitte gib eine E-Mailadresse an.'\nmessage:\n  '#type': textarea\n  '#title': Nachricht\n  '#required': true\n  '#required_error': 'Eine Anfrage ohne Inhalt? Nee. Bitte ausfüllen!'\ncaptcha:\n  '#type': captcha\n  '#captcha_type': recaptcha/reCAPTCHA\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': Abschicken"
 css: ''
 javascript: ''
 settings:
