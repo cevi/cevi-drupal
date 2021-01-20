@@ -1,6 +1,8 @@
 # Cevi Drupal Seite
 
-Das ist ein Projekt, damit du mit Hilfe vom CMS "Drupal" deine eigene Cevi-Webseite erstellen kannst.
+Das ist ein Projekt, damit du mit Hilfe vom CMS "[Drupal](https://drupal.org)" deine eigene Cevi-Webseite erstellen kannst.
+
+Du findest unter [https://drupal.cevi.ch](https://drupal.cevi.ch) eine Live-Vorschau.
 
 ## Voraussetzungen
 
@@ -60,10 +62,10 @@ Importiert die Konfiguration für die ganze Webseite.
 # Erste Schritte
 
 1) Admin-Passwort wechseln
-1) Unter Inhalt > Inhalt hinzufügen > [Landingpage](http://www.cevi-drupal.ch/node/add/landingpage) eine Startseite hinzufügen.
+1) Unter Inhalt > Inhalt hinzufügen > [Landingpage](https://drupal.cevi.ch/node/add/landingpage) eine Startseite hinzufügen.
 1) Weitere Seiten hinzufügen.
-1) Unter [Cevi](http://www.cevi-drupal.ch/admin/cevi) kannst du dein Logo hinzufügen und dein Slogan für die Startseite. Das Logo kannst du im [Cevi-Logo-Generator](https://logo.cevi.ch) erstellen.
-1) Unter Struktur > Menüs > [Social-Media](http://www.cevi-drupal.ch/admin/structure/menu/social-media-menu) kannst du deine Sozialen Medien verlinken.
+1) Unter [Cevi](https://drupal.cevi.ch/admin/cevi) kannst du dein Logo hinzufügen und dein Slogan für die Startseite. Das Logo kannst du im [Cevi-Logo-Generator](https://logo.cevi.ch) erstellen.
+1) Unter Struktur > Menüs > [Social-Media](https://drupal.cevi.ch/admin/structure/menu/social-media-menu) kannst du deine Sozialen Medien verlinken.
 1) Am gleichen Ort bei der Hauptnavigation kannst du das Hauptmenü bearbeiten.
 1) Ebenfalls bei den Menüs kannst du das Fussmenü erstellen und da zumindest die beiden folgenden Links hinzufügen
    1) Login der auf `/user/login` verlinkt
