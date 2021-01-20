@@ -102,6 +102,109 @@ function cevi_base_toolbar_alter(array &$variables) {
 }
 
 /**
+ * Implements hook_leaflet_map_info().
+ *
+ * @see modules/leaflet/leaflet.api.php
+ */
+function cevi_base_leaflet_map_info() {
+  return [
+    'OSM Mapnik' => [
+      'label' => 'OSM Mapnik',
+      'description' => t('Leaflet default map.'),
+      'settings' => [
+        'dragging' => TRUE,
+        'touchZoom' => TRUE,
+        'scrollWheelZoom' => TRUE,
+        'doubleClickZoom' => TRUE,
+        'zoomControl' => TRUE,
+        'attributionControl' => TRUE,
+        'trackResize' => TRUE,
+        'fadeAnimation' => TRUE,
+        'zoomAnimation' => TRUE,
+        'closePopupOnClick' => TRUE,
+        // Sets the map min max and starting zoom,
+        // 'minZoom' => 10,
+        // 'maxZoom' => 15,
+        // 'zoom' => 15,
+        //
+        // Specific of the Drupal Leaflet module
+        // Enables Layer Control in case of multiple layers, and add options.
+        'layerControl' => TRUE,
+        'layerControlOptions' => [
+          'position' => 'topright',
+        ],
+      ],
+      'layers' => [
+        'earth' => [
+          'urlTemplate' => '//{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+          'options' => [
+            'attribution' => 'OSM Mapnik',
+          ],
+        ],
+      ],
+      // Uncomment the lines below to use a custom path style for geometries.
+      /*'path' => [
+        "color" => "black",
+        "opacity" => "0.8",
+        "stroke" => 2,
+        "fill" => TRUE,
+        "fillColor" => "blue",
+        "fillOpacity" => "0.1",
+      ],*/
+      // Uncomment the lines below to use a custom icon.
+      /*'icon' => array(
+        'iconUrl'       => '/sites/default/files/icon.png',
+        'iconSize'      => array('x' => '20', 'y' => '40'),
+        'iconAnchor'    => array('x' => '20', 'y' => '40'),
+        'popupAnchor'   => array('x' => '-8', 'y' => '-32'),
+        'shadowUrl'     => '/sites/default/files/icon-shadow.png',
+        'shadowSize'    => array('x' => '25', 'y' => '27'),
+        'shadowAnchor'  => array('x' => '0', 'y' => '27'),
+      ),*/
+      // Enable and configure plugins in the plugins array.
+      'plugins' => [],
+    ],
+    'JAWG Topo' => [
+      'label' => 'JAWG Topo',
+      'description' => t('JAWG Topo Karte.'),
+      'settings' => [
+        'dragging' => TRUE,
+        'touchZoom' => TRUE,
+        'scrollWheelZoom' => TRUE,
+        'doubleClickZoom' => TRUE,
+        'zoomControl' => TRUE,
+        'attributionControl' => TRUE,
+        'trackResize' => TRUE,
+        'fadeAnimation' => TRUE,
+        'zoomAnimation' => TRUE,
+        'closePopupOnClick' => TRUE,
+        'minZoom' => 10,
+        'maxZoom' => 22,
+        'zoom' => 17,
+        'layerControl' => TRUE,
+        'layerControlOptions' => [
+          'position' => 'topright',
+        ],
+      ],
+      'layers' => [
+        'earth' => [
+          'urlTemplate' => '//{s}.tile.jawg.io/jawg-terrain/{z}/{x}/{y}{r}.png?access-token={accessToken}',
+          'options' => [
+            'attribution' => '<a href="http://jawg.io" title="Tiles Courtesy of Jawg Maps" target="_blank">&copy; <b>Jawg</b>Maps</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            'subdomains' => 'abcd',
+            'accessToken' => 'OXTDgZzM4XJc5c25WVEkAokvofAp7zzjAmE376iRpazhFdVtx1bNUJoPaLECHMRy',
+          ],
+        ],
+      ],
+      // Enable and configure plugins in the plugins array.
+      'plugins' => [],
+    ],
+  ];
+}
+
+
+
+/**
  * Get Image URL from a $config_value out of an admin-config-form.
  *
  * @param $config_value

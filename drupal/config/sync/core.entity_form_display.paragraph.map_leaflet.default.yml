@@ -1,0 +1,24 @@
+uuid: f4d316f6-7ccd-4405-a8f0-a304f8e33953
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_leaflet.field_map_leaflet
+    - paragraphs.paragraphs_type.map_leaflet
+  module:
+    - geofield
+id: paragraph.map_leaflet.default
+targetEntityType: paragraph
+bundle: map_leaflet
+mode: default
+content:
+  field_map_leaflet:
+    weight: 0
+    settings:
+      html5_geolocation: false
+    third_party_settings: {  }
+    type: geofield_latlon
+    region: content
+hidden:
+  created: true
+  status: true

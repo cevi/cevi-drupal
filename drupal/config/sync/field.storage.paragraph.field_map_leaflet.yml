@@ -1,0 +1,20 @@
+uuid: 4d9cf210-6188-48ea-92a4-a7dbd7f13321
+langcode: de
+status: true
+dependencies:
+  module:
+    - geofield
+    - paragraphs
+id: paragraph.field_map_leaflet
+field_name: field_map_leaflet
+entity_type: paragraph
+type: geofield
+settings:
+  backend: geofield_backend_default
+module: geofield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

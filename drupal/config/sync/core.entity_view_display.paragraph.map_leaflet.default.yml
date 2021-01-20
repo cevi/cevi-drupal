@@ -1,0 +1,83 @@
+uuid: dd7a2cdf-d9b0-49b1-acb3-76408fdacb43
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.map_leaflet.field_map_leaflet
+    - paragraphs.paragraphs_type.map_leaflet
+  module:
+    - leaflet
+id: paragraph.map_leaflet.default
+targetEntityType: paragraph
+bundle: map_leaflet
+mode: default
+content:
+  field_map_leaflet:
+    weight: 0
+    label: hidden
+    settings:
+      multiple_map: false
+      popup_content: ''
+      leaflet_map: 'JAWG Topo'
+      height: 400
+      height_unit: px
+      reset_map:
+        position: topright
+        control: false
+      map_position:
+        center:
+          lat: !!float 0
+          lon: !!float 0
+        zoom: 17
+        minZoom: 1
+        maxZoom: 22
+        zoomFiner: 0
+        force: false
+      weight: ''
+      icon:
+        iconType: marker
+        iconUrl: ''
+        shadowUrl: ''
+        className: ''
+        html: '<div></div>'
+        html_class: leaflet-map-divicon
+        circle_marker_options: '{"radius":100,"color":"red","fillColor":"#f03","fillOpacity":0.5}'
+        iconSize:
+          x: ''
+          'y': ''
+        iconAnchor:
+          x: ''
+          'y': ''
+        shadowSize:
+          x: ''
+          'y': ''
+        shadowAnchor:
+          x: ''
+          'y': ''
+        popupAnchor:
+          x: ''
+          'y': ''
+      path: '{"color":"#3388ff","opacity":"1.0","stroke":true,"weight":3,"fill":"depends","fillColor":"*","fillOpacity":"0.2","radius":"6"}'
+      popup: false
+      hide_empty_map: false
+      disable_wheel: false
+      fullscreen_control: false
+      gesture_handling: false
+      leaflet_markercluster:
+        control: false
+        options: '{"spiderfyOnMaxZoom":true,"showCoverageOnHover":true,"removeOutsideVisibleBounds": false}'
+      geocoder:
+        control: false
+        settings:
+          position: topright
+          input_size: 25
+          providers: {  }
+          min_terms: 4
+          delay: 800
+          zoom: 16
+          popup: false
+          options: ''
+    third_party_settings: {  }
+    type: leaflet_formatter_default
+    region: content
+hidden: {  }

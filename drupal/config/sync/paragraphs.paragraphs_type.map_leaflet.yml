@@ -1,0 +1,16 @@
+uuid: 03a7171d-b4d9-446f-bd59-e81ea50f2053
+langcode: de
+status: true
+dependencies:
+  module:
+    - type_style
+third_party_settings:
+  type_style:
+    color: '#000000'
+    icon: ''
+id: map_leaflet
+label: 'Kartenausschnitt Leaflet'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

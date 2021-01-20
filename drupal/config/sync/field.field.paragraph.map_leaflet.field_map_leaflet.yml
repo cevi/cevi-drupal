@@ -1,0 +1,22 @@
+uuid: 3b26078f-3a0d-49ea-b322-97f349aa4a97
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_map_leaflet
+    - paragraphs.paragraphs_type.map_leaflet
+  module:
+    - geofield
+id: paragraph.map_leaflet.field_map_leaflet
+field_name: field_map_leaflet
+entity_type: paragraph
+bundle: map_leaflet
+label: Koordinaten
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  backend: geofield_backend_default
+field_type: geofield
