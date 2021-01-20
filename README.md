@@ -59,6 +59,7 @@ Installationsprogramm kann unter DOMAIN//core/install.php aufgerufen werden. Die
 1) `$ vendor/bin/drush cim -y`
 Importiert die Konfiguration für die ganze Webseite.
    
+
 # Erste Schritte
 
 1) Admin-Passwort wechseln
@@ -86,3 +87,10 @@ Startet den Befehl, die aktuellen Bearbeitungen am Frontend zu überwachen.
 
 `$ cd drupal && composer install && cd ..`
 Um die Frontend-Dateien ins Drupal-System einzugliedern.
+
+
+# Weitere Funktionen
+
+## Datenbank-Abbild
+
+`$ drupal/vendor/bin/drush cr && drupal/vendor/bin/drush sql-dump --result-file=../../db_dumps/export.sql --gzip`
