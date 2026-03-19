@@ -1,10 +1,12 @@
+_core:
+  default_config_hash: 9bVDfWSa_In6VzTXmy04jJ_3ZQobihKjO9isuuUCPaw
+protect_all_forms: true
 unprotected_forms:
   - user_login_form
   - search_form
   - search_block_form
   - views_exposed_form
   - honeypot_settings_form
-protect_all_forms: true
 log: true
 element_name: url
 time_limit: 5
@@ -15,6 +17,3 @@ form_settings:
   node_defaultpage_form: true
   node_landingpage_form: true
   comment_comment_form: true
-_core:
-  default_config_hash: 9bVDfWSa_In6VzTXmy04jJ_3ZQobihKjO9isuuUCPaw
-langcode: de

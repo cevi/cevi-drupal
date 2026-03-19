@@ -4,7 +4,6 @@ namespace Drupal\cevi_base\Controller;
 
 use Drupal\cevi_base\Service\CeviBaseFormService;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Component\Utility\Unicode;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -62,15 +61,15 @@ class FaviconController extends ControllerBase {
     }
 
     if (!$favicon_uri) {
-      $this->redirect('front');
+      return $this->redirect('<front>');
     }
 
-    $mime = $this->fileMimeTypeGuesser->guess($favicon_uri);
+    $mime = $this->fileMimeTypeGuesser->guessMimeType($favicon_uri);
 
     $headers = [
-      'Content-Type' => $mime . '; name="' . Unicode::mimeHeaderEncode(basename($favicon_uri)) . '"',
+      'Content-Type' => $mime . '; name="' . basename($favicon_uri) . '"',
       'Content-Length' => filesize($favicon_uri),
-      'Content-Disposition' => 'inline; filename="' . Unicode::mimeHeaderEncode(basename($favicon_uri)) . '"',
+      'Content-Disposition' => 'inline; filename="' . basename($favicon_uri) . '"',
       'Cache-Control' => 'private',
     ];
 

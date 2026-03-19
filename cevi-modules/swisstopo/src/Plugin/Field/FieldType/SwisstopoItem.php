@@ -85,13 +85,13 @@ class SwisstopoItem extends FieldItemBase {
         $marker_file = $fileStorage->load($settings['marker'][0]);
         if ($marker_file) {
           $marker_uri = $marker_file->get('uri')->getValue()[0]['value'];
-          return file_create_url($marker_uri);
+          return \Drupal::service('file_url_generator')->generateAbsoluteString($marker_uri);
         }
       }
     }
 
     // Return the default Url of the marker.
-    return file_create_url($this::DEFAULT_MARKER_URI);
+    return \Drupal::service('file_url_generator')->generateAbsoluteString($this::DEFAULT_MARKER_URI);
   }
 
   /**
@@ -189,22 +189,21 @@ class SwisstopoItem extends FieldItemBase {
    */
   protected static function loadDefaultMarkerImageId() {
     $image_uri = SwisstopoItem::DEFAULT_MARKER_URI;
-    $module_path = drupal_get_path('module', 'swisstopo');
+    $module_path = \Drupal::service('extension.list.module')->getPath('swisstopo');
 
     $files = Drupal::entityTypeManager()->getStorage('file')->loadByProperties(['uri' => $image_uri]);
 
     if (empty($files)) {
       $file_system = Drupal::service('file_system');
       $image_path_module = $file_system->realpath($module_path . '/assets/images/marker.png');
-      $module_path_public = $file_system->realpath('public://') . '/swisstopo_marker/orig';
-      $image_path_public = $module_path_public . '/marker.png';
+      $module_path_public = 'public://swisstopo_marker/orig';
 
-      if (file_prepare_directory($module_path_public, FILE_CREATE_DIRECTORY)) {
-        if (file_unmanaged_copy($image_path_module, $image_path_public, FILE_EXISTS_RENAME)) {
-          // File could be copied successfully.
+      if ($file_system->prepareDirectory($module_path_public, \Drupal\Core\File\FileSystemInterface::CREATE_DIRECTORY)) {
+        try {
+          $file_system->copy($image_path_module, $module_path_public . '/marker.png', \Drupal\Core\File\FileSystemInterface::EXISTS_RENAME);
         }
-        else {
-          Drupal::messenger()->addError(t('The default map-marker-file could not be copied to %file.', ['%file' => $image_path_public]));
+        catch (\Exception $e) {
+          Drupal::messenger()->addError(t('The default map-marker-file could not be copied: @error', ['@error' => $e->getMessage()]));
           return FALSE;
         }
       }

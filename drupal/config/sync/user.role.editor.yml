@@ -1,7 +1,29 @@
 uuid: b251de7e-6cba-4bbf-ba24-0493f2523210
 langcode: de
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - filter.format.basic_html
+    - media.type.audio
+    - media.type.file
+    - media.type.image
+    - media.type.remote_video
+    - media.type.video
+    - node.type.defaultpage
+    - node.type.landingpage
+  module:
+    - cevi_base
+    - environment_indicator
+    - file
+    - filter
+    - help
+    - media
+    - node
+    - paragraphs
+    - path
+    - system
+    - toolbar
+    - webform
 id: editor
 label: Editor
 weight: 5
@@ -12,13 +34,12 @@ permissions:
   - 'access content overview'
   - 'access environment indicator'
   - 'access files overview'
-  - 'access in-place editing'
+  - 'access help pages'
   - 'access media overview'
   - 'access site in maintenance mode'
   - 'access toolbar'
   - 'access user profiles'
   - 'access webform overview'
-  - 'access webform submission log'
   - 'access webform submission user'
   - 'administer menu'
   - 'administer nodes'
@@ -54,6 +75,7 @@ permissions:
   - 'delete own audio media'
   - 'delete own defaultpage content'
   - 'delete own file media'
+  - 'delete own files'
   - 'delete own image media'
   - 'delete own landingpage content'
   - 'delete own remote_video media'

@@ -11,5 +11,6 @@ third_party_settings:
 id: download_file
 label: Datei
 icon_uuid: null
+icon_default: null
 description: 'Eine Datei zum herunterladen.'
 behavior_plugins: {  }

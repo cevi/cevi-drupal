@@ -9,7 +9,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Entity\EntityTypeManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\file\FileUsage\DatabaseFileUsageBackend;
-use Drupal\Core\Database\Driver\mysql\Connection;
+use Drupal\Core\Database\Connection;
 
 /**
  * Configure the settings for the settings-form.
@@ -35,7 +35,7 @@ class CeviBaseAdminSettingsForm extends ConfigFormBase {
   /**
    * Drupal's Database.
    *
-   * @var \Drupal\Core\Database\Driver\mysql\Connection
+   * @var \Drupal\Core\Database\Connection
    */
   protected $database;
 
@@ -48,7 +48,7 @@ class CeviBaseAdminSettingsForm extends ConfigFormBase {
    *   The default entityTypeManager.
    * @param \Drupal\file\FileUsage\DatabaseFileUsageBackend $file_usage
    *   The default File-Usage-Service.
-   * @param \Drupal\Core\Database\Driver\mysql\Connection $database
+   * @param \Drupal\Core\Database\Connection $database
    *   The default Database.
    *
    * @throws \Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException
@@ -143,7 +143,9 @@ class CeviBaseAdminSettingsForm extends ConfigFormBase {
       '#upload_location' => 'public://cevi-config/',
       '#default_value' => $config->get(CeviBaseFormService::HEADER_LOGO),
       '#upload_validators' => [
-        'file_validate_extensions' => ['png gif jpg jpeg svg'],
+        'FileExtension' => [
+          'extensions' => 'png gif jpg jpeg svg',
+        ],
       ],
     ];
 
@@ -154,7 +156,9 @@ class CeviBaseAdminSettingsForm extends ConfigFormBase {
       '#upload_location' => 'public://cevi-config/',
       '#default_value' => $config->get(CeviBaseFormService::HEADER_LOGO_SMALL),
       '#upload_validators' => [
-        'file_validate_extensions' => ['png gif jpg jpeg svg'],
+        'FileExtension' => [
+          'extensions' => 'png gif jpg jpeg svg',
+        ],
       ],
     ];
 
@@ -165,7 +169,9 @@ class CeviBaseAdminSettingsForm extends ConfigFormBase {
       '#upload_location' => 'public://cevi-config/',
       '#default_value' => $config->get(CeviBaseFormService::FAVICON),
       '#upload_validators' => [
-        'file_validate_extensions' => ['png gif jpg jpeg svg ico'],
+        'FileExtension' => [
+          'extensions' => 'png gif jpg jpeg svg ico',
+        ],
       ],
     ];
 
@@ -241,8 +247,12 @@ class CeviBaseAdminSettingsForm extends ConfigFormBase {
    * @throws \Drupal\Core\Entity\EntityStorageException
    */
   private function deleteFilesFromUsed($fid, $type) {
-    $query = $this->database->query("SELECT fid, id FROM {file_usage} WHERE module = 'cevi_base' AND type = '$type'");
-    $result = $query->fetchAll();
+    $result = $this->database->select('file_usage', 'fu')
+      ->fields('fu', ['fid', 'id'])
+      ->condition('module', 'cevi_base')
+      ->condition('type', $type)
+      ->execute()
+      ->fetchAll();
 
     foreach ($result as $record) {
       if ($record->fid !== $fid) {

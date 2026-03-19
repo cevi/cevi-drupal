@@ -67,6 +67,11 @@ sourcePath: /components/_image-slider.scss
         width: calc(100vw - #{$cevi-line-size * 2});
         left: 0;
         height: calc(100vh - #{$base-header-height} - #{$cevi-line-size * 2});
+
+        // Fix iOS Safari 100vh bug — address bar included in 100vh causing bottom clip
+        @supports (-webkit-touch-callout: none) {
+            height: calc(100svh - #{$base-header-height} - #{$cevi-line-size * 2});
+        }
         top: $base-header-height;
         background-color: $color-background;
         position: absolute;

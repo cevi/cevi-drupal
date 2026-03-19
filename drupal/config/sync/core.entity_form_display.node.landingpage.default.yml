@@ -10,11 +10,11 @@ dependencies:
     - field_group
     - media_library
     - paragraphs
+    - path
 third_party_settings:
   field_group:
     group_background_images:
       children:
-        - field_image_slider
         - field_image_slider_media
       parent_name: ''
       weight: 20
@@ -34,7 +34,8 @@ content:
   field_image_slider_media:
     type: media_library_widget
     weight: 27
-    settings: {  }
+    settings:
+      media_types: {  }
     third_party_settings: {  }
     region: content
   field_intro_paragraphs:
@@ -53,8 +54,29 @@ content:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+      closed_mode_threshold: 0
     third_party_settings: {  }
     region: content
+  path:
+    type: path
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -66,8 +88,5 @@ content:
 hidden:
   created: true
   langcode: true
-  path: true
-  promote: true
   status: true
-  sticky: true
   uid: true

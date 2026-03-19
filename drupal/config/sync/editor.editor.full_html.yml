@@ -5,53 +5,56 @@ dependencies:
   config:
     - filter.format.full_html
   module:
-    - ckeditor
+    - ckeditor5
 _core:
   default_config_hash: 967ijj7p6i7rwrYl7r08WQFeCY_c23YAh0h8u-w_CXM
 format: full_html
-editor: ckeditor
+editor: ckeditor5
 settings:
   toolbar:
-    rows:
-      -
-        -
-          name: Formatting
-          items:
-            - Bold
-            - Italic
-            - Superscript
-            - Subscript
-            - '-'
-        -
-          name: Linking
-          items:
-            - DrupalLink
-            - DrupalUnlink
-        -
-          name: Lists
-          items:
-            - BulletedList
-            - NumberedList
-        -
-          name: Media
-          items:
-            - Blockquote
-            - Table
-            - HorizontalRule
-        -
-          name: Tools
-          items:
-            - Source
+    items:
+      - bold
+      - italic
+      - superscript
+      - subscript
+      - '|'
+      - link
+      - '|'
+      - bulletedList
+      - numberedList
+      - '|'
+      - drupalInsertImage
+      - blockQuote
+      - insertTable
+      - horizontalLine
+      - '|'
+      - heading
+      - '|'
+      - sourceEditing
   plugins:
-    stylescombo:
-      styles: ''
-    language:
+    ckeditor5_heading:
+      enabled_headings:
+        - heading2
+        - heading3
+        - heading4
+        - heading5
+        - heading6
+    ckeditor5_image:
+      toolbar:
+        - toggleImageCaption
+        - imageTextAlternative
+        - '|'
+        - 'imageStyle:inline'
+        - 'imageStyle:block'
+        - 'imageStyle:side'
+    ckeditor5_language:
       language_list: un
+    ckeditor5_list:
+      properties:
+        reversed: false
+        startIndex: false
+      multiBlock: true
+    ckeditor5_sourceEditing:
+      allowed_tags: {  }
 image_upload:
   status: false
-  scheme: public
-  directory: inline-images
-  max_size: ''
-  max_dimensions:
-    width: null
-    height: null

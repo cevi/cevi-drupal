@@ -2,4 +2,4 @@ name: Cevi Logo
 description: Cevi Logo Module
 package: Cevi
 type: module
-core: 8.x
+core_version_requirement: ^10 || ^11

@@ -7,12 +7,10 @@ $databases['default']['default'] = array (
   'prefix' => '',
   'host' => 'localhost',
   'port' => '3306',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+  'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+  'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
   'driver' => 'mysql',
 );
-
-assert_options(ASSERT_ACTIVE, TRUE);
-\Drupal\Component\Assertion\Handle::register();
 
 $config['system.logging']['error_level'] = 'verbose';
 

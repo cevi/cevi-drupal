@@ -26,8 +26,8 @@ content:
         control: false
       map_position:
         center:
-          lat: !!float 0
-          lon: !!float 0
+          lat: 0.0
+          lon: 0.0
         zoom: 17
         minZoom: 1
         maxZoom: 22

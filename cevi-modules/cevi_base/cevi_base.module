@@ -214,14 +214,15 @@ function cevi_base_leaflet_map_info() {
  * @throws \Drupal\Component\Plugin\Exception\PluginNotFoundException
  */
 function _cevi_base_get_image_url($config_value, $alternate) {
-  $fileStorage = Drupal::entityTypeManager()->getStorage('file');
+  $fileStorage = \Drupal::entityTypeManager()->getStorage('file');
+  $fileUrlGenerator = \Drupal::service('file_url_generator');
 
   if (isset($config_value[0])) {
     $file = $fileStorage->load($config_value[0]);
     if ($file) {
       $uri = $file->get('uri')->getValue()[0]['value'];
       if (file_exists($uri)) {
-        return file_create_url($uri);
+        return $fileUrlGenerator->generateAbsoluteString($uri);
       }
     }
   }

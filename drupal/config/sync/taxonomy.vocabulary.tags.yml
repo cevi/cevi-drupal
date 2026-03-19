@@ -8,3 +8,4 @@ name: Tags
 vid: tags
 description: 'Mit Schlagwörtern können Artikel zu verwandten Themen in Kategorien zusammengefasst werden.'
 weight: 0
+new_revision: false

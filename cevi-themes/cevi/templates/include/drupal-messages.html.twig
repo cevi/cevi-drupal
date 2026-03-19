@@ -3,7 +3,7 @@
     {{ status_messages }}
   </div>
 {% endif %}
-{% if tabs %}
+{% if tabs|render|trim %}
   <div class="drupal-tabs">
     {{ tabs }}
   </div>

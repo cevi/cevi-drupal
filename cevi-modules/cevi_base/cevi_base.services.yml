@@ -1,6 +1,5 @@
 services:
   cevi_base.email_twig_extension:
-    arguments: ['@renderer', '@url_generator', '@theme.manager', '@date.formatter']
     class: Drupal\cevi_base\TwigExtension\EmailTwigExtension
     tags:
       - { name: twig.extension }

@@ -6,5 +6,6 @@ dependencies:
     - user
 id: user.profile_public
 label: profile_public
+description: ''
 targetEntityType: user
 cache: true

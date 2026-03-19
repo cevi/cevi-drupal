@@ -1,12 +1,12 @@
-site_key: 6LfuXTEaAAAAABk-FM4lFEkWa7Cx902AdnU1dyXJ
+_core:
+  default_config_hash: eKR4FfUD7Cp3bXamsCz6GAxh0PCLIZNMa65y2kChIh0
+site_key: ''
+secret_key: ''
 verify_hostname: false
 use_globally: false
 widget:
   theme: light
   type: image
   size: ''
-  tabindex: 0
   noscript: false
-_core:
-  default_config_hash: eKR4FfUD7Cp3bXamsCz6GAxh0PCLIZNMa65y2kChIh0
-langcode: de
+  tabindex: 0

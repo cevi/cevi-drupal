@@ -5,6 +5,7 @@ dependencies:
   config:
     - system.menu.main
   module:
+    - ctools
     - system
   theme:
     - cevi
@@ -24,4 +25,12 @@ settings:
   level: 1
   depth: 0
   expand_all_items: false
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      defaultpage: defaultpage
+      landingpage: landingpage
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

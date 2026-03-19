@@ -3,11 +3,11 @@ langcode: de
 status: true
 dependencies:
   theme:
-    - seven
+    - claro
 _core:
   default_config_hash: QeZBeCilQfeET3GeW6ZtJkEiwROADTZktFgKWwPieD4
-id: seven_secondary_local_tasks
-theme: seven
+id: claro_secondary_local_tasks
+theme: claro
 region: pre_content
 weight: 0
 provider: null
