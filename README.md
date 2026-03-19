@@ -2,16 +2,29 @@
 
 Das ist ein Projekt, damit du mit Hilfe vom CMS "[Drupal](https://drupal.org)" deine eigene Cevi-Webseite erstellen kannst.
 
-Du findest unter [https://drupal.cevi.ch](https://drupal.cevi.ch) eine Live-Vorschau.
+## Schnellstart (Docker)
 
-## Voraussetzungen
+Für die lokale Entwicklung wird nur Docker benötigt — kein PHP, Composer oder Node lokal nötig.
+
+```bash
+git clone https://github.com/cevi/cevi-drupal.git
+cd cevi-drupal
+cp .env.example .env        # Werte anpassen falls nötig
+docker compose up -d --build
+```
+
+Siehe [DOCKER.md](DOCKER.md) für die vollständige Dokumentation (Entwicklung, Produktion, Backups).
+
+---
+
+## Voraussetzungen (ohne Docker)
 
 Folgende Voraussetzungen müssen gegeben sein:
 
-- `composer` sollte global installiert sein
+- PHP 8.2+, `composer` 2+ global installiert
+- `node` 20+, `npm` global installiert
 - Irgendein (lokaler) Server sollte vorhanden sein
 - Eine Datenbank (mysql) mit den nötigen Zugängen muss vorhanden sein.
-- `node`, `npm` und `composer` global im System installieren.
 
 ## Vorbereitung
 
@@ -54,7 +67,7 @@ Installationsprogramm kann unter DOMAIN//core/install.php aufgerufen werden. Die
    1) `$ ./vendor/bin/drush config-set shortcut.set.default uuid 6e0504ef-46e5-42bf-a1a2-cd097c1689ce -y`
    1) `$ ./vendor/bin/drush cdel field.field.node.article.body`
    1) `$ ./vendor/bin/drush cdel field.field.node.page.body`
-   1) `$ ./vendor/bin/drush ev '\Drupal::entityManager()->getStorage("shortcut_set")->load("default")->delete();'`
+   1) `$ ./vendor/bin/drush ev '\Drupal::service("entity_type.manager")->getStorage("shortcut_set")->load("default")->delete();'`
 
 1) `$ vendor/bin/drush cim -y`
 Importiert die Konfiguration für die ganze Webseite.
@@ -63,10 +76,10 @@ Importiert die Konfiguration für die ganze Webseite.
 # Erste Schritte
 
 1) Admin-Passwort wechseln
-1) Unter Inhalt > Inhalt hinzufügen > [Landingpage](https://drupal.cevi.ch/node/add/landingpage) eine Startseite hinzufügen.
+1) Unter Inhalt > Inhalt hinzufügen > Landingpage (`/node/add/landingpage`) eine Startseite hinzufügen.
 1) Weitere Seiten hinzufügen.
-1) Unter [Cevi](https://drupal.cevi.ch/admin/cevi) kannst du dein Logo hinzufügen und dein Slogan für die Startseite. Das Logo kannst du im [Cevi-Logo-Generator](https://logo.cevi.ch) erstellen.
-1) Unter Struktur > Menüs > [Social-Media](https://drupal.cevi.ch/admin/structure/menu/social-media-menu) kannst du deine Sozialen Medien verlinken.
+1) Unter Cevi (`/admin/cevi`) kannst du dein Logo hinzufügen und dein Slogan für die Startseite. Das Logo kannst du im [Cevi-Logo-Generator](https://logo.cevi.ch) erstellen.
+1) Unter Struktur > Menüs > Social-Media (`/admin/structure/menu/social-media-menu`) kannst du deine Sozialen Medien verlinken.
 1) Am gleichen Ort bei der Hauptnavigation kannst du das Hauptmenü bearbeiten.
 1) Ebenfalls bei den Menüs kannst du das Fussmenü erstellen und da zumindest die beiden folgenden Links hinzufügen
    1) Login der auf `/user/login` verlinkt

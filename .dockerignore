@@ -1,0 +1,11 @@
+.git
+.env
+node_modules
+db_dumps
+settings/settings.*.php
+settings/settings.current.php
+cevi-themes/cevi/assets
+cevi-themes/cevi/assets-old
+.idea
+.DS_Store
+AGENTS.md

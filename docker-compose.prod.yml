@@ -1,0 +1,19 @@
+# Production overrides — use on the Azure VM:
+#   docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d --build
+
+services:
+
+  drupal:
+    build:
+      context: .
+      target: production
+
+  caddy:
+    volumes:
+      # drupal_web:/var/www/html/web:ro is inherited from docker-compose.yml
+      - ./docker/caddy/Caddyfile.prod:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+      - drupal_files:/var/www/html/web/sites/default/files:ro
+    environment:
+      CADDY_DOMAIN: ${CADDY_DOMAIN}

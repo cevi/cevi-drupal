@@ -1,0 +1,60 @@
+# Dev overrides — auto-loaded by docker compose locally.
+# Provides: live code editing, Xdebug, exposed DB port.
+
+services:
+
+  mariadb:
+    ports:
+      - "127.0.0.1:3306:3306"  # allow local DB clients (TablePlus, DBeaver, etc.)
+
+  drupal:
+    build:
+      target: production  # reuse same image; settings.dev.php handles the rest
+    environment:
+      DRUPAL_ENV: development
+      XDEBUG_MODE: ${XDEBUG_MODE:-off}
+      XDEBUG_CLIENT_HOST: ${XDEBUG_CLIENT_HOST:-host.docker.internal}
+    volumes:
+      # Live-mount cevi modules so edits are reflected immediately.
+      # Paths match the flat layout that copyCeviFiles and prod image use.
+      - ./cevi-modules/allow_iframe:/var/www/html/web/modules/custom/allow_iframe
+      - ./cevi-modules/cevi_base:/var/www/html/web/modules/custom/cevi_base
+      - ./cevi-modules/cevi_logo:/var/www/html/web/modules/custom/cevi_logo
+      - ./cevi-modules/swisstopo:/var/www/html/web/modules/custom/swisstopo
+      - ./cevi-themes/cevi:/var/www/html/web/themes/custom/cevi
+      - ./cevi-themes/ceviadmin:/var/www/html/web/themes/custom/ceviadmin
+      # Dev settings override
+      - ./docker/php/settings.dev.php:/var/www/html/web/sites/default/settings.current.php:ro
+      # Live-mount entrypoint so changes take effect without rebuild
+      - ./scripts/entrypoint.sh:/entrypoint.sh:ro
+      - drupal_files:/var/www/html/web/sites/default/files
+      - drupal_private:/var/www/private
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  caddy:
+    volumes:
+      - ./docker/caddy/Caddyfile.dev:/etc/caddy/Caddyfile:ro
+      - drupal_web:/var/www/html/web:ro
+      - ./cevi-modules/allow_iframe:/var/www/html/web/modules/custom/allow_iframe:ro
+      - ./cevi-modules/cevi_base:/var/www/html/web/modules/custom/cevi_base:ro
+      - ./cevi-modules/cevi_logo:/var/www/html/web/modules/custom/cevi_logo:ro
+      - ./cevi-modules/swisstopo:/var/www/html/web/modules/custom/swisstopo:ro
+      - ./cevi-themes/cevi:/var/www/html/web/themes/custom/cevi:ro
+      - ./cevi-themes/ceviadmin:/var/www/html/web/themes/custom/ceviadmin:ro
+      - drupal_files:/var/www/html/web/sites/default/files:ro
+    ports:
+      - "80:80"    # plain HTTP
+
+  # Frontend watcher — run: docker compose run --rm node-builder npm run watch
+  node-builder:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - .:/app
+    profiles:
+      - tools  # not started by default, only on explicit run
+    command: ["npm", "run", "watch"]
+
+volumes:
+  drupal_web:

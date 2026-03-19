@@ -1,0 +1,66 @@
+# Base compose file — shared by dev and prod.
+# Do not use directly; use docker-compose.override.yml (dev) or docker-compose.prod.yml (prod).
+
+services:
+
+  mariadb:
+    image: mariadb:11
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${DRUPAL_DB_NAME}
+      MYSQL_USER: ${DRUPAL_DB_USER}
+      MYSQL_PASSWORD: ${DRUPAL_DB_PASS}
+      MYSQL_ROOT_PASSWORD: ${DRUPAL_DB_ROOT_PASS}
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./docker/mariadb/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  drupal:
+    build:
+      context: .
+      target: production
+    restart: unless-stopped
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    environment:
+      DRUPAL_DB_NAME: ${DRUPAL_DB_NAME}
+      DRUPAL_DB_USER: ${DRUPAL_DB_USER}
+      DRUPAL_DB_PASS: ${DRUPAL_DB_PASS}
+      DRUPAL_DB_HOST: mariadb
+      DRUPAL_DB_PORT: 3306
+      DRUPAL_HASH_SALT: ${DRUPAL_HASH_SALT}
+      DRUPAL_TRUSTED_HOSTS: ${DRUPAL_TRUSTED_HOSTS}
+      DRUPAL_ENV: ${DRUPAL_ENV:-production}
+    volumes:
+      - drupal_web:/var/www/html/web
+      - drupal_files:/var/www/html/web/sites/default/files
+      - drupal_private:/var/www/private
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - drupal
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - caddy_data:/data
+      - caddy_config:/config
+      - drupal_web:/var/www/html/web:ro
+      - drupal_files:/var/www/html/web/sites/default/files:ro
+
+volumes:
+  db_data:
+  drupal_web:
+  drupal_files:
+  drupal_private:
+  caddy_data:
+  caddy_config:
