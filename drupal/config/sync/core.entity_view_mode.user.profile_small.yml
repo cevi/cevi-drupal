@@ -6,5 +6,6 @@ dependencies:
     - user
 id: user.profile_small
 label: profile_small
+description: ''
 targetEntityType: user
 cache: true

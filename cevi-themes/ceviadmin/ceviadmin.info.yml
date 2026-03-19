@@ -2,10 +2,10 @@ name: Cevi Admin Theme
 type: theme
 description: 'Admin theme for the cevi theme'
 package: Cevi
-core: 8.x
+core_version_requirement: ^10 || ^11
 libraries:
   - ceviadmin/frontend
-base theme: seven
+base theme: claro
 regions:
   header: 'Header'
   pre_content: 'Pre-content'

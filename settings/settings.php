@@ -290,7 +290,9 @@ $databases = [];
  *   $settings['hash_salt'] = file_get_contents('/home/example/salt.txt');
  * @endcode
  */
-$settings['hash_salt'] = 'A2YwGn8hg5I1XLYCyToZINF6w1AoZXz-sHjY8OnW5ds37ZlEtL21RT9GIxfWPnG_MWFufgeyVA';
+// Hash salt is set in settings.current.php via the DRUPAL_HASH_SALT environment
+// variable. Do NOT set a value here — committing a salt is a security risk.
+$settings['hash_salt'] = '';
 
 /**
  * Deployment identifier.

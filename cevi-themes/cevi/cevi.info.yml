@@ -2,7 +2,7 @@ name: Cevi Theme
 type: theme
 description: 'Drupal theme for the cevi website'
 package: Cevi
-core: 8.x
+core_version_requirement: ^10 || ^11
 libraries:
   - cevi/frontend
   - cevi/modernizr

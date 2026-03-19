@@ -7,25 +7,23 @@ $databases['default']['default'] = array (
     'prefix' => '',
     'host' => 'localhost',
     'port' => '3306',
-    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+    'namespace' => 'Drupal\\mysql\\Driver\\Database\\mysql',
+    'autoload' => 'core/modules/mysql/src/Driver/Database/mysql/',
     'driver' => 'mysql',
 );
 
-assert_options(ASSERT_ACTIVE, TRUE);
-\Drupal\Component\Assertion\Handle::register();
-
-$config['system.logging']['error_level'] = 'verbose';
+$config['system.logging']['error_level'] = 'hide';
 
 $config['system.performance']['css']['preprocess'] = TRUE;
 $config['system.performance']['js']['preprocess'] = TRUE;
 
 $settings['twig_debug'] = FALSE;
 
-$settings['extension_discovery_scan_tests'] = TRUE;
+$settings['extension_discovery_scan_tests'] = FALSE;
 
 $settings['rebuild_access'] = FALSE;
 
-$settings['skip_permissions_hardening'] = TRUE;
+$settings['skip_permissions_hardening'] = FALSE;
 
 // Settings for drupal-module "environment_indicator".
 $config['environment_indicator.indicator']['bg_color'] = '#BE0001';

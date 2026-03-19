@@ -11,5 +11,6 @@ third_party_settings:
 id: highlight
 label: 'Highlight / Hervorhebung'
 icon_uuid: null
+icon_default: null
 description: 'Hebt einen Text (oder eben highlight) hervor.'
 behavior_plugins: {  }

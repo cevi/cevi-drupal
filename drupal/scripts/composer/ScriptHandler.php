@@ -9,18 +9,17 @@ namespace DrupalProject\composer;
 
 use Composer\Script\Event;
 use Composer\Semver\Comparator;
-use Drupal\Core\Site\Settings;
-use DrupalFinder\DrupalFinder;
 use Symfony\Component\Filesystem\Filesystem;
-use Webmozart\PathUtil\Path;
 
 class ScriptHandler {
 
+    protected static function getDrupalRoot(string $projectRoot): string {
+        return $projectRoot . '/web';
+    }
+
     public static function createRequiredFiles(Event $event) {
         $fs = new Filesystem();
-        $drupalFinder = new DrupalFinder();
-        $drupalFinder->locateRoot(getcwd());
-        $drupalRoot = $drupalFinder->getDrupalRoot();
+        $drupalRoot = static::getDrupalRoot(getcwd());
 
         $dirs = [
             'modules',
@@ -34,21 +33,6 @@ class ScriptHandler {
                 $fs->mkdir($drupalRoot . '/'. $dir);
                 $fs->touch($drupalRoot . '/'. $dir . '/.gitkeep');
             }
-        }
-
-        // Prepare the settings file for installation
-        if (!$fs->exists($drupalRoot . '/sites/default/settings.php') && $fs->exists($drupalRoot . '/sites/default/default.settings.php')) {
-            $fs->copy($drupalRoot . '/sites/default/default.settings.php', $drupalRoot . '/sites/default/settings.php');
-            require_once $drupalRoot . '/core/includes/bootstrap.inc';
-            require_once $drupalRoot . '/core/includes/install.inc';
-            new Settings([]);
-            $settings['settings']['config_sync_directory'] = (object) [
-                'value' => Path::makeRelative($drupalFinder->getComposerRoot() . '/config/sync', $drupalRoot),
-                'required' => TRUE,
-            ];
-            drupal_rewrite_settings($settings, $drupalRoot . '/sites/default/settings.php');
-            $fs->chmod($drupalRoot . '/sites/default/settings.php', 0666);
-            $event->getIO()->write("Created a sites/default/settings.php file with chmod 0666");
         }
 
         // Create the files directory with chmod 0777
@@ -91,8 +75,8 @@ class ScriptHandler {
         if ($version === '@package_version@' || $version === '@package_branch_alias_version@') {
             $io->writeError('<warning>You are running a development version of Composer. If you experience problems, please update Composer to the latest stable version.</warning>');
         }
-        elseif (Comparator::lessThan($version, '1.0.0')) {
-            $io->writeError('<error>Drupal-project requires Composer version 1.0.0 or higher. Please update your Composer before continuing</error>.');
+        elseif (Comparator::lessThan($version, '2.0.0')) {
+            $io->writeError('<error>This project requires Composer version 2.0.0 or higher. Please update your Composer before continuing</error>.');
             exit(1);
         }
     }
@@ -100,9 +84,7 @@ class ScriptHandler {
     public static function copyCeviFiles(Event $event) {
         $fs = new Filesystem();
         $io = $event->getIO();
-        $drupalFinder = new DrupalFinder();
-        $drupalFinder->locateRoot(getcwd());
-        $drupalRoot = $drupalFinder->getDrupalRoot();
+        $drupalRoot = static::getDrupalRoot(getcwd());
 
         // Copy Modules & Themes
         if (!$fs->exists($drupalRoot . '/modules/custom')) {

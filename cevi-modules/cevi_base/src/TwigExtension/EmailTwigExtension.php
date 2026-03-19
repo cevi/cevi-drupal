@@ -2,13 +2,13 @@
 
 namespace Drupal\cevi_base\TwigExtension;
 
-use Drupal\Core\Template\TwigExtension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * A Twig extension to hash emails.
  */
-class EmailTwigExtension extends TwigExtension {
+class EmailTwigExtension extends AbstractExtension {
 
   /**
    * Generates a list of all Twig functions that this extension defines.
@@ -25,19 +25,9 @@ class EmailTwigExtension extends TwigExtension {
    */
   public function getFunctions() {
     return [
-      'email_obfuscator' => new Twig_SimpleFunction('email_obfuscator', [$this, 'emailObfuscator']),
-      'phone_obfuscator' => new Twig_SimpleFunction('phone_obfuscator', [$this, 'phoneObfuscator']),
+      new TwigFunction('email_obfuscator', [$this, 'emailObfuscator']),
+      new TwigFunction('phone_obfuscator', [$this, 'phoneObfuscator']),
     ];
-  }
-
-  /**
-   * Get the unique name of this extension.
-   *
-   * @return string
-   *   Name of the extension.
-   */
-  public function getName() {
-    return 'cevi_base.email_twig_extension';
   }
 
   /**

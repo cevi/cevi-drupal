@@ -11,5 +11,6 @@ third_party_settings:
 id: image_slider
 label: 'Bilder Slider'
 icon_uuid: null
+icon_default: null
 description: 'Mehrere Bilder als Slider, analog wie auf der Startseite, aber in der Grösse vom jeweiligen Bild.'
 behavior_plugins: {  }

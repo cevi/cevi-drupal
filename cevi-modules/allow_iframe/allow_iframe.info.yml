@@ -2,4 +2,4 @@ name: Allow site to be iframed
 description: Watch out for clickjacking...
 type: module
 package: Security
-core: 8.x
+core_version_requirement: ^10 || ^11

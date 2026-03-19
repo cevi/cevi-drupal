@@ -11,5 +11,6 @@ third_party_settings:
 id: image_full
 label: Bild
 icon_uuid: null
+icon_default: null
 description: 'Ein Bild, das über die volle Breite angezeigt wird.'
 behavior_plugins: {  }

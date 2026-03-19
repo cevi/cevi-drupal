@@ -1,0 +1,44 @@
+# www → apex redirect. Works for any domain via $CADDY_DOMAIN.
+# To use apex → www instead, swap the two site blocks and update the redir target.
+www.{$CADDY_DOMAIN} {
+    redir https://{$CADDY_DOMAIN}{uri} permanent
+}
+
+{$CADDY_DOMAIN} {
+    root * /var/www/html/web
+    encode gzip
+
+    php_fastcgi drupal:9000
+
+    file_server
+
+    # Drupal clean URLs
+    @notStatic {
+        not file
+        not path /core/* /profiles/* /themes/* /modules/* /sites/*/files/*
+    }
+    rewrite @notStatic /index.php?{query}
+
+    # Security headers
+    header {
+        X-Content-Type-Options nosniff
+        X-Frame-Options SAMEORIGIN
+        Referrer-Policy strict-origin-when-cross-origin
+        Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+        -Server
+    }
+
+    # Block sensitive paths
+    @sensitive {
+        path /core/install.php /update.php /authorize.php
+        path /.git/* /vendor/* /.env /web.config
+        path /composer.json /composer.lock
+        path /sites/*/settings*.php /sites/*/services.yml
+    }
+    respond @sensitive 403
+
+    log {
+        output stdout
+        format console
+    }
+}

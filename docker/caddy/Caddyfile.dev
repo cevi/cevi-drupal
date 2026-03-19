@@ -1,0 +1,19 @@
+:80 {
+    root * /var/www/html/web
+    encode gzip
+
+    php_fastcgi drupal:9000
+
+    file_server
+
+    @notStatic {
+        not file
+        not path /core/* /profiles/* /themes/* /modules/* /sites/*/files/*
+    }
+    rewrite @notStatic /index.php?{query}
+
+    log {
+        output stdout
+        format console
+    }
+}

@@ -13,3 +13,9 @@ allow_cli: true
 _core:
   default_config_hash: c1dcnGFDXTeMq2-Z8e7H6Qxp6TTJe-ZhSA126E3bQJ4
 langcode: de
+allowlist: null
+domains: ''
+method: 0
+unset_basic_auth_headers: true
+debug_header: false
+paths: ''

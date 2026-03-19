@@ -16,7 +16,8 @@ use Drupal\node\Entity\Node;
  * Set global assets-folder.
  */
 function cevi_preprocess(&$variables) {
-  $variables['assets'] = '/' . drupal_get_path('theme', 'cevi') . '/assets';
+  $variables['assets'] = '/' . \Drupal::service('extension.list.theme')->getPath('cevi') . '/assets';
+  $variables['site_name'] = \Drupal::config('system.site')->get('name');
 }
 
 /**
@@ -130,7 +131,22 @@ function cevi_preprocess_menu__main(&$variables) {
  * Move admin-tabs and status-messages to the global page-object.
  */
 function cevi_preprocess_page(&$variables) {
-  $variables['tabs'] = menu_local_tabs();
+  // Build local task tabs (D10 compatible).
+  $manager = \Drupal::service('plugin.manager.menu.local_task');
+  $cacheability = new \Drupal\Core\Cache\CacheableMetadata();
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if ($route_name) {
+    $tasks = $manager->getTasksBuild($route_name, $cacheability);
+    $variables['tabs'] = [
+      '#theme' => 'menu_local_tasks',
+      '#primary' => $tasks['#primary'] ?? [],
+      '#secondary' => $tasks['#secondary'] ?? [],
+    ];
+    $cacheability->applyTo($variables['tabs']);
+  }
+  else {
+    $variables['tabs'] = [];
+  }
   $variables['status_messages'] = StatusMessages::renderMessages(NULL);
 
   if (isset($variables['node'])) {
@@ -176,7 +192,7 @@ function cevi_preprocess_paragraph(&$variables) {
       $user = $userStorage->load($person_id);
       $view_builder = Drupal::entityTypeManager()->getViewBuilder($entity_type);
       $build = $view_builder->view($user, $view_mode);
-      $variables['person'] = render($build);
+      $variables['person'] = \Drupal::service('renderer')->render($build);
       if ($user->get('user_picture') && $user->get('user_picture')->first()) {
         $person_image_uri = $user->get('user_picture')
           ->first()->entity->getFileUri();

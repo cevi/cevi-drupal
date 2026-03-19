@@ -2,11 +2,13 @@
 deploy
 grish.json
 db_dumps/*
+!db_dumps/.gitkeep
 log/*
 phpunit.xml.dist
 
 # Credentials
 settings/settings.*.php
+.env
 
 # Frontend
 node_modules
